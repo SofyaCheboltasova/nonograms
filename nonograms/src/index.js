@@ -6,6 +6,8 @@ function setMainScreen() {
   const background = setBackground();
   const gameField = setGameField(5);
   const main = document.createElement("main");
+  main.classList.add("main");
+
   main.append(background, gameField);
 
   const { body } = document;

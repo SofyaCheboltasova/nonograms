@@ -10,10 +10,6 @@
   }
 }
 
-.wrapper {
-  @include flexPosition();
-}
-
 .gameField {
   @include basicSquare(42rem, $color-cell-hover);
   @include flexPosition(end, right);
