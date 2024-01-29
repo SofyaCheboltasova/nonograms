@@ -1,0 +1,11 @@
+@mixin basicSquare($size, $background) {
+  width: $size;
+  height: $size;
+  background: $background;
+}
+
+@mixin flexPosition($align-items: center, $justify-content: center) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}

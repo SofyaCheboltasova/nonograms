@@ -1,0 +1,27 @@
+.cell {
+  @include basicSquare(7rem, $color-cell-primary);
+
+  border: 2px solid $color-cell-additional;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-cell-hover;
+    transition: all 0.3s;
+  }
+}
+
+.wrapper {
+  @include flexPosition();
+}
+
+.gameField {
+  @include basicSquare(42rem, $color-cell-hover);
+  @include flexPosition(end, right);
+
+  opacity: 0.3;
+}
+
+.cellsField {
+  border-collapse: collapse;
+}
+
