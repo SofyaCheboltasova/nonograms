@@ -14,10 +14,14 @@
   @include basicSquare(42rem, $color-cell-hover);
   @include flexPosition(end, right);
 
-  opacity: 0.3;
+  opacity: 0.5;
+  border-radius: 20px;
+  box-shadow: -5px -5px 44px #ffadcc;
 }
 
 .cellsField {
   border-collapse: collapse;
+  border: 5px solid #e3e3d9;
+  opacity: 1;
 }
 
