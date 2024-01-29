@@ -1,16 +1,17 @@
 .main {
   @include flexPosition();
-  height: 100vh;
+  height: $height-page;
 }
 
 .background {
   background-image: url(../assets/images/background.jpg);
   background-size: cover;
+  height: $height-page;
+  width: $width-page;
+
   opacity: 0.9;
   top: 0;
   position: fixed;
   z-index: -1;
-  height: 100vh;
-  width: 100vw;
 }
 

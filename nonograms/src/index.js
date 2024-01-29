@@ -18,6 +18,8 @@ function setMainScreen() {
 	setTimer();
 	setGameImage();
 	setGameField();
+	getRandomPicture();
+	setCellsEventListeners()
 	*/
 }
 

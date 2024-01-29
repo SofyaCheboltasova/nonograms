@@ -1,5 +1,5 @@
 .cell {
-  @include basicSquare(7rem, $color-cell-primary);
+  @include basicSquare($size-cell, $color-cell-primary);
 
   border: 2px solid $color-cell-additional;
   cursor: pointer;
@@ -11,7 +11,7 @@
 }
 
 .gameField {
-  @include basicSquare(42rem, $color-cell-hover);
+  @include basicSquare($size-game-field, $color-cell-hover);
   @include flexPosition(end, right);
 
   opacity: 0.5;

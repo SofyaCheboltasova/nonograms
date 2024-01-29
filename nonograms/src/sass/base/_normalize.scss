@@ -3,6 +3,14 @@
 /* Document
    ========================================================================== */
 
+:root {
+  font-size: 10px;
+}
+
+* {
+  font-size: 1.6rem;
+}
+
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -349,3 +357,4 @@ template {
 [hidden] {
   display: none;
 }
+
