@@ -5,9 +5,19 @@
   cursor: pointer;
 
   &:hover {
-    background: $color-cell-hover;
-    transition: all 0.3s;
+    // background: $color-cell-hover;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
   }
+
+  &:not(:hover) {
+    transition: all 0.4s ease;
+  }
+}
+
+.cell_pressed {
+  @include basicSquare($size-cell, $color-cell-hover);
+  outline: 2px solid #e3e3d9;
 }
 
 .gameField {

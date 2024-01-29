@@ -1,9 +1,11 @@
-function createCellsLine(size) {
+function createCellsLine(size, row) {
   const tr = document.createElement("tr");
 
   for (let i = 0; i < size; i += 1) {
     const cell = document.createElement("td");
     cell.setAttribute("id", i);
+    cell.setAttribute("data-row", row);
+    cell.setAttribute("data-col", i);
     cell.classList.add("cell");
     tr.appendChild(cell);
   }
@@ -18,7 +20,7 @@ function setGameField(size) {
   cellsField.classList.add("cellsField");
 
   for (let i = 0; i < size; i += 1) {
-    const cellLine = createCellsLine(size);
+    const cellLine = createCellsLine(size, i);
     cellsField.append(cellLine);
   }
   gameField.appendChild(cellsField);

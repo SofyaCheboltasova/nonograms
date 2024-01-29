@@ -1,5 +1,6 @@
 import setBackground from "./scripts/setBackground";
 import setGameField from "./scripts/setGameField";
+import setCellsEventListeners from "./scripts/setCellsEventListeners";
 import "./sass/main.scss";
 
 function setMainScreen() {
@@ -24,4 +25,5 @@ function setMainScreen() {
 }
 
 setMainScreen();
+setCellsEventListeners();
 
