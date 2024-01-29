@@ -3,6 +3,7 @@ function createCellsLine(size) {
 
   for (let i = 0; i < size; i += 1) {
     const cell = document.createElement("td");
+    cell.setAttribute("id", i);
     cell.classList.add("cell");
     tr.appendChild(cell);
   }
