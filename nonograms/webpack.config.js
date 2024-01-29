@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 
-const { HtmlWebpackPlugin } = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
@@ -13,11 +13,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jpg|png)$/,
-        exclude: /node_modules/,
-        use: { loader: "url-loader" },
+        test: /\.(jpg|png|svg)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/images/[name][ext]",
+        },
       },
-      { test: /\.svg$/, exclude: /node_modules/, loader: "svg-inline-loader" },
       { test: /\.(woff|woff2)$/, use: { loader: "url-loader" } },
       {
         test: /\.(scss|css)$/,
@@ -29,10 +30,11 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ESLintPlugin(),
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./index.html" }),
   ],
   devServer: {
     static: path.resolve(__dirname, "./dist"),
   },
+  mode: "development",
+  devtool: "source-map",
 };
-
