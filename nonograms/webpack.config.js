@@ -2,6 +2,8 @@ const path = require("path");
 const webpack = require("webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// eslint-disable-next-line import/no-extraneous-dependencies
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
@@ -31,6 +33,14 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new ESLintPlugin(),
     new HtmlWebpackPlugin({ template: "./index.html" }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: `./src/assets`,
+          to: "assets",
+        },
+      ],
+    }),
   ],
   devServer: {
     static: path.resolve(__dirname, "./dist"),
