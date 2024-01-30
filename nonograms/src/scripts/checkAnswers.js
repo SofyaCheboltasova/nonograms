@@ -1,20 +1,22 @@
-let answers;
+const answers = [];
 
 export function initAnswersArray(puzzle) {
-  answers = puzzle.slice();
+  for (let i = 0; i < puzzle.length; i += 1) {
+    for (let j = 0; j < puzzle[i].length; j += 1) {
+      answers[i * puzzle.length + j] = puzzle[i][j];
+    }
+  }
 }
 
-export function updateAnswersArray(value, coordinates) {
+export function updateAnswersArray(value, size, coordinates) {
   const { x, y } = coordinates;
-  answers[x][y] = value;
+  answers[x * size + y] = value;
 }
 
 export function isSolved() {
   for (let i = 0; i < answers.length; i += 1) {
-    for (let j = 0; j < answers[i].length; j += 1) {
-      if (answers[i][j] !== 0) {
-        return false;
-      }
+    if (answers[i] !== 0) {
+      return false;
     }
   }
   return true;

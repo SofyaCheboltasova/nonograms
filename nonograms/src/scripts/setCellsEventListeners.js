@@ -19,10 +19,10 @@ function pressCell(cellData, puzzle, filled) {
   const { cell, i: x, j: y } = cellData;
 
   cell.classList.add("cell_pressed");
-
   countClickedCells += 1;
+
   if (puzzle[x][y] === 1) {
-    updateAnswersArray(0, { x, y });
+    updateAnswersArray(0, puzzle.length, { x, y });
   }
 
   checkClickedCells(filled);
@@ -30,15 +30,17 @@ function pressCell(cellData, puzzle, filled) {
 
 function unpressCell(cellData, puzzle, filled) {
   const { cell, i: x, j: y } = cellData;
-  cell.classList.remove("cell_pressed");
 
+  cell.classList.remove("cell_pressed");
   countClickedCells -= 1;
-  updateAnswersArray(puzzle[x][y], { x, y });
+
+  updateAnswersArray(puzzle[x][y], puzzle.length, { x, y });
   checkClickedCells(filled);
 }
 
 function setCellsEventListeners(size, nonogram) {
   const { puzzle, filled } = nonogram;
+
   initAnswersArray(puzzle);
   const cells = document.querySelectorAll(".cell");
 
