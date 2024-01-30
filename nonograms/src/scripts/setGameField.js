@@ -17,7 +17,7 @@ function setGameField(size) {
   gameField.classList.add("gameField");
 
   const cellsField = document.createElement("table");
-  cellsField.classList.add("cellsField");
+  cellsField.classList.add("gameField__cells");
 
   for (let i = 0; i < size; i += 1) {
     const cellLine = createCellsLine(size, i);
