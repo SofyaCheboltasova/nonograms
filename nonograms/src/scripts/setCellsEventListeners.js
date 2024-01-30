@@ -16,7 +16,7 @@ function checkClickedCells(filled) {
 }
 
 function pressCell(cellData, puzzle, filled) {
-  const { cell, x, y } = cellData;
+  const { cell, i: x, j: y } = cellData;
 
   cell.classList.add("cell_pressed");
 
@@ -29,7 +29,7 @@ function pressCell(cellData, puzzle, filled) {
 }
 
 function unpressCell(cellData, puzzle, filled) {
-  const { cell, x, y } = cellData;
+  const { cell, i: x, j: y } = cellData;
   cell.classList.remove("cell_pressed");
 
   countClickedCells -= 1;
