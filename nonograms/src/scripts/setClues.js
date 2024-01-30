@@ -1,7 +1,12 @@
-function setCluesForLine(cell, line) {
+function setCluesForLine(cell, line, cellClass = "") {
   for (let j = 0; j < line.length; j += 1) {
     const span = document.createElement("span");
     span.textContent = `${line[j]}`;
+
+    if (cellClass !== "") {
+      cell.classList.add(cellClass);
+    }
+
     cell.appendChild(span);
   }
 }
@@ -13,7 +18,7 @@ function setClues(nonogram) {
 
   for (let i = 0; i < size; i += 1) {
     setCluesForLine(cells[i + 1], columns[i]);
-    setCluesForLine(cells[(i + 1) * (size + 1)], rows[i]);
+    setCluesForLine(cells[(i + 1) * (size + 1)], rows[i], "horizontal");
   }
 }
 
