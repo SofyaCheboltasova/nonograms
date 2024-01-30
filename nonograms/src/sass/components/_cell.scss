@@ -10,6 +10,10 @@
     transition: all 0.4s ease;
   }
 
+  &:active {
+    transform: scale((1));
+  }
+
   &:not(:hover) {
     transition: all 0.4s ease;
   }
