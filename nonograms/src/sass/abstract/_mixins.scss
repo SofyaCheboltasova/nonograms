@@ -1,7 +1,7 @@
-@mixin basicSquare($size, $background) {
-  width: $size;
-  height: $size;
-  background: $background;
+@mixin basicRectangle($height, $width, $color: none) {
+  height: $height;
+  width: $width;
+  background: $color;
 }
 
 @mixin flexPosition($align-items: center, $justify-content: center) {
@@ -9,3 +9,4 @@
   align-items: $align-items;
   justify-content: $justify-content;
 }
+

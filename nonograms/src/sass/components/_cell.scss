@@ -1,0 +1,21 @@
+.cell {
+  @include basicRectangle($size-cell, $size-cell, $color-cell-primary);
+
+  border: $border-cell solid $color-cell-additional;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-cell-hover;
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+  }
+
+  &:not(:hover) {
+    transition: all 0.4s ease;
+  }
+}
+
+.cell_pressed {
+  background: $color-cell-hover;
+  outline: $border-cell solid $color-background;
+}

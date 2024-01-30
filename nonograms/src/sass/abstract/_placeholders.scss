@@ -1,0 +1,15 @@
+%cluesBackground {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-radius: 20px;
+}
+
+%fieldBackground {
+  opacity: 0.5;
+  border-radius: $radius-game-field;
+  box-shadow: $shadow-game-field;
+}

@@ -1,10 +1,19 @@
 $color-cell-primary: #e097b2;
 $color-cell-additional: #872d49;
 $color-cell-hover: #893655;
+$color-background: #e3e3d9;
+$color-shadow: #ffadcc;
 
 $height-page: 100vh;
 $width-page: 100vw;
 
+$border-table: 0.5rem;
+$border-cell: 0.2rem;
+
 $size-cell: 11.2rem;
 $size-game-field: 67.2rem;
+$size-divider: $size-game-field - $size-cell + $border-table;
+
+$shadow-game-field: -5px -5px 44px $color-shadow;
+$radius-game-field: 2rem;
 
