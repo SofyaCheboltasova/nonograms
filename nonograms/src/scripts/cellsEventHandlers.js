@@ -2,6 +2,7 @@
 /* eslint-disable no-alert */
 
 import { initAnswersArray, updateAnswersArray, isSolved } from "./checkAnswers";
+import setEndMessage from "./setEndMessage";
 
 let countClickedCells = 0;
 
@@ -11,7 +12,7 @@ function isCellPressed(cell) {
 
 function checkClickedCells(filled) {
   if (countClickedCells === filled && isSolved()) {
-    alert("You win!");
+    setEndMessage(isSolved());
   }
 }
 

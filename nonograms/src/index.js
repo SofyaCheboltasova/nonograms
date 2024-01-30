@@ -1,20 +1,22 @@
 /* eslint-disable no-console */
-import setBackground from "./scripts/setBackground";
+import { setBackground, setHeader } from "./scripts/setBackground";
 import setGameField from "./scripts/setGameField";
 import setClues from "./scripts/setClues";
-import setCellsEventListeners from "./scripts/setCellsEventListeners";
+import setCellsEventListeners from "./scripts/cellsEventHandlers";
 import { getNonogram, setNonogram } from "./scripts/generateNonogram";
 import "./sass/main.scss";
 
 const size = 5;
 
 async function setMainScreen() {
-  const background = setBackground();
-  const gameField = setGameField(5);
   const main = document.createElement("main");
   main.classList.add("main");
 
-  main.append(background, gameField);
+  const header = setHeader();
+  const background = setBackground();
+  const gameField = setGameField(5);
+
+  main.append(background, header, gameField);
 
   const { body } = document;
   body.append(main);

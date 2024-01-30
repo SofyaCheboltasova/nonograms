@@ -1,9 +1,15 @@
-function setBackground() {
-  const div = document.createElement("div");
-  div.classList.add("background");
+export function setBackground() {
+  const background = document.createElement("div");
+  background.classList.add("background");
 
-  return div;
+  return background;
 }
 
-export default setBackground;
+export function setHeader() {
+  const header = document.createElement("h1");
+  header.classList.add("main__header");
+  header.textContent = "Let's solve the nonogram!";
+
+  return header;
+}
 

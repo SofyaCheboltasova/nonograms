@@ -1,5 +1,6 @@
 .main {
   @include flexPosition();
+  flex-direction: column;
   height: $height-page;
 }
 
@@ -13,5 +14,9 @@
   top: 0;
   position: fixed;
   z-index: -1;
+}
+
+.main__header {
+  color: $color-cell-hover;
 }
 
