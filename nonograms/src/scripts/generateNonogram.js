@@ -6,15 +6,25 @@ async function fetchRequest() {
   return Object.values(nonograms);
 }
 
-async function getRandomNonogramKey() {
-  const nonograms = await fetchRequest();
+function getRandomNonogramKey(length) {
+  const randomKey = Math.floor(Math.random() * length);
+  return randomKey;
+}
 
-  const randomIndex = Math.floor(Math.random() * nonograms.length);
-  return nonograms[randomIndex];
+async function getRandomNonogram() {
+  const nonograms = await fetchRequest();
+  const lastKey = localStorage.nonogramKey;
+  let newKey = getRandomNonogramKey(nonograms.length);
+
+  while (newKey === lastKey) {
+    newKey = getRandomNonogramKey(nonograms.length);
+  }
+  localStorage.nonogramKey = newKey;
+  return nonograms[newKey];
 }
 
 export async function setNonogram() {
-  const randomNonogram = await getRandomNonogramKey();
+  const randomNonogram = await getRandomNonogram();
   nonogram = randomNonogram;
 }
 

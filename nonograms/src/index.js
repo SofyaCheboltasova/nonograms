@@ -19,13 +19,8 @@ async function setMainScreen() {
   const { body } = document;
   body.append(main);
   /*
-	setBackground(); +
-	setGameField(); +
-	generateNonogram(); +
-	setCellsEventListeners() +
-
-	setClues();
-
+	модалку
+	адаптив
 	setGameButtons();
 	setTimer();
 	*/
