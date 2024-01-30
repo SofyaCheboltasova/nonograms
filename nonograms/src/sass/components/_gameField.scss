@@ -15,26 +15,12 @@
   border: $border-table solid $color-background;
 }
 
-.gameField__clues {
-  @include basicRectangle($size-game-field, $size-game-field);
-  @extend %fieldBackground;
-
+.gameField__clues-wrapper {
   position: absolute;
   z-index: -1;
 }
 
-.gameField__clues_top {
-  @include basicRectangle($size-game-field, $size-divider);
-  @extend %cluesBackground;
-
-  right: 0;
-}
-
-.gameField__clues_left {
-  @include basicRectangle($size-divider, $size-game-field);
-  @extend %cluesBackground;
-
-  left: 0;
-  flex-direction: column;
+.gameField__clues {
+  border-collapse: collapse;
 }
 

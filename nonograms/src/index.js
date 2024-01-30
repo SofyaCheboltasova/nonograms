@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import setBackground from "./scripts/setBackground";
 import setGameField from "./scripts/setGameField";
+import setClues from "./scripts/setClues";
 import setCellsEventListeners from "./scripts/setCellsEventListeners";
 import { getNonogram, setNonogram } from "./scripts/generateNonogram";
 import "./sass/main.scss";
@@ -19,16 +20,20 @@ async function setMainScreen() {
   body.append(main);
   /*
 	setBackground(); +
+	setGameField(); +
+	generateNonogram(); +
+	setCellsEventListeners() +
+
+	setClues();
+
 	setGameButtons();
 	setTimer();
-	setGameField(); +
-	generateNonogram();
-	setCellsEventListeners() +
 	*/
 }
 
 setMainScreen();
 await setNonogram();
 const nonogram = getNonogram();
+setClues(nonogram);
 setCellsEventListeners(size, nonogram);
 

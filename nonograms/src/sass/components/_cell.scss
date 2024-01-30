@@ -19,3 +19,9 @@
   background: $color-cell-hover;
   outline: $border-cell solid $color-background;
 }
+
+.cell_clue {
+  @include basicRectangle($size-cell, $size-cell);
+  border: 1px solid $color-background;
+}
+

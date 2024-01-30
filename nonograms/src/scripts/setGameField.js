@@ -1,4 +1,4 @@
-function createCellsLine(size, row) {
+function createCellsLine(size, row, cellClass) {
   const tr = document.createElement("tr");
 
   for (let i = 0; i < size; i += 1) {
@@ -6,50 +6,39 @@ function createCellsLine(size, row) {
     cell.setAttribute("id", i);
     cell.setAttribute("data-row", row);
     cell.setAttribute("data-col", i);
-    cell.classList.add("cell");
+    cell.classList.add(cellClass);
     tr.appendChild(cell);
   }
   return tr;
 }
 
-function setClues(size) {
-  const cluesField = document.createElement("div");
+function createCluesBackground(size) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("gameField__clues-wrapper");
+
+  const cluesField = document.createElement("table");
   cluesField.classList.add("gameField__clues");
 
-  const cluesTop = document.createElement("div");
-  cluesTop.classList.add("gameField__clues_top");
-
-  const cluesLeft = document.createElement("div");
-  cluesLeft.classList.add("gameField__clues_left");
-
   for (let i = 0; i < size + 1; i += 1) {
-    const divider = document.createElement("div");
-    divider.classList.add("divider-vertical");
-    cluesTop.appendChild(divider);
+    const cellLine = createCellsLine(size + 1, i, "cell_clue");
+    cluesField.append(cellLine);
   }
 
-  for (let i = 0; i < size + 1; i += 1) {
-    const divider = document.createElement("div");
-    divider.classList.add("divider-horizontal");
-    cluesLeft.appendChild(divider);
-  }
-
-  cluesField.append(cluesTop, cluesLeft);
-
-  return cluesField;
+  wrapper.appendChild(cluesField);
+  return wrapper;
 }
 
 function setGameField(size) {
   const gameField = document.createElement("div");
   gameField.classList.add("gameField");
 
-  const cluesField = setClues(size);
+  const cluesField = createCluesBackground(size);
 
   const cellsField = document.createElement("table");
   cellsField.classList.add("gameField__cells");
 
   for (let i = 0; i < size; i += 1) {
-    const cellLine = createCellsLine(size, i);
+    const cellLine = createCellsLine(size, i, "cell");
     cellsField.append(cellLine);
   }
   gameField.append(cluesField, cellsField);
