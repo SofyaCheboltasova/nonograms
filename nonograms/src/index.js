@@ -1,25 +1,32 @@
-/* eslint-disable no-console */
-import { setBackground, setHeader } from "./scripts/setBackground";
-import setGameField from "./scripts/setGameField";
+import "./sass/main.scss";
+
 import setClues from "./scripts/setClues";
+import setGameField from "./scripts/setGameField";
 import setCellsEventListeners from "./scripts/cellsEventHandlers";
 import { getNonogram, setNonogram } from "./scripts/generateNonogram";
-import "./sass/main.scss";
+import { setHeader, setBackground } from "./scripts/setBackground";
 
 const size = 5;
 
-async function setMainScreen() {
+async function setLogic() {
+  await setNonogram();
+  const nonogram = getNonogram();
+
+  setClues(nonogram);
+  setCellsEventListeners(size, nonogram);
+}
+
+async function setMainTemplate() {
   const main = document.createElement("main");
   main.classList.add("main");
 
   const header = setHeader();
   const background = setBackground();
-  const gameField = setGameField(5);
+  const gameField = setGameField(size);
 
-  main.append(background, header, gameField);
+  main.append(header, background, gameField);
 
-  const { body } = document;
-  body.append(main);
+  document.body.append(main);
   /*
 	модалку
 	адаптив
@@ -28,9 +35,6 @@ async function setMainScreen() {
 	*/
 }
 
-setMainScreen();
-await setNonogram();
-const nonogram = getNonogram();
-setClues(nonogram);
-setCellsEventListeners(size, nonogram);
+setMainTemplate();
+setLogic();
 

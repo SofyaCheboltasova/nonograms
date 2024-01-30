@@ -5,6 +5,7 @@ function setEndMessage(isWinner) {
   } else {
     header.innerText = "Next time it will be better :(";
   }
+  header.classList.add("main__header_win");
 }
 
 export default setEndMessage;
