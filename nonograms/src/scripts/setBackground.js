@@ -15,7 +15,15 @@ export function setHeader() {
 
 export function setAudio() {
   const audioIcon = document.createElement("div");
-  audioIcon.classList.add(".main__audio_off");
+  audioIcon.classList.add("main__audio_off");
+
+  audioIcon.addEventListener("click", () => {
+    if (audioIcon.classList.contains("main__audio_on")) {
+      audioIcon.classList.remove("main__audio_on");
+    } else {
+      audioIcon.classList.add("main__audio_on");
+    }
+  });
 
   return audioIcon;
 }
