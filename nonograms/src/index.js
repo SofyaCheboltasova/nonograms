@@ -7,7 +7,7 @@ import { getNonogram, setNonogram } from "./scripts/nonogram";
 import {
   setHeader,
   setBackground,
-  setAudioIcon,
+  setAudioSection,
 } from "./scripts/setBackground";
 
 const size = 5;
@@ -25,11 +25,11 @@ async function setMainTemplate() {
   main.classList.add("main");
 
   const header = setHeader();
-  const audioIcon = setAudioIcon();
+  const audioSection = setAudioSection();
   const background = setBackground();
   const gameField = setGameField(size);
 
-  main.append(header, audioIcon, background, gameField);
+  main.append(header, audioSection, background, gameField);
 
   document.body.append(main);
   /*
@@ -40,9 +40,6 @@ async function setMainTemplate() {
 - reset game
 
 - settimeout после первого щелчка по полю (не по подсказкам) + сообщение:
-
-- sound (вкл./выкл.)
-
 - saveGame & continueGame
 	*/
 }
