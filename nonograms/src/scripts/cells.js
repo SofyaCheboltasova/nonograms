@@ -1,16 +1,40 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 import { initAnswersArray, updateAnswersArray, isSolved } from "./answers";
 import { setAudioOn, audio } from "./audio";
 import { isTimerStarted, setEndMessage } from "./header";
 
-let countClickedCells = 0;
 const pressed = "cell_pressed";
 const crossed = "cell_crossed";
+
+let countClickedCells = 0;
 let solved = false;
+
+function clickedCellsCount() {
+  return countClickedCells;
+}
 
 function resetClickedCells() {
   countClickedCells = 0;
   solved = false;
+}
+
+function updateCountClickedCells() {
+  const clickedCells = document.querySelectorAll(".cell_pressed");
+  countClickedCells = clickedCells.length;
+}
+
+function resetCellStyles() {
+  const pressedCells = document.querySelectorAll(`.${pressed}`);
+  const crossedCells = document.querySelectorAll(`.${crossed}`);
+
+  for (let i = 0; i < pressedCells.length; i += 1) {
+    pressedCells[i].classList.remove(pressed);
+  }
+
+  for (let i = 0; i < crossedCells.length; i += 1) {
+    crossedCells[i].classList.remove(crossed);
+  }
 }
 
 function containsClass(cell, cClass) {
@@ -102,5 +126,11 @@ function setCellsEventListeners(size, nonogram) {
   }
 }
 
-export { setCellsEventListeners, resetClickedCells };
+export {
+  setCellsEventListeners,
+  resetClickedCells,
+  resetCellStyles,
+  updateCountClickedCells,
+  clickedCellsCount,
+};
 

@@ -8,7 +8,7 @@ import { setHeader } from "./scripts/header";
 import {
   setBackground,
   setAudioSection,
-  setResetButton,
+  setMenuButtons,
 } from "./scripts/background";
 
 const size = 5;
@@ -28,19 +28,19 @@ async function setMainTemplate() {
   const header = setHeader();
   const audioSection = setAudioSection();
   const background = setBackground();
-  const reset = setResetButton();
+  const menu = setMenuButtons();
   const gameField = setGameField(size);
 
-  main.append(header, audioSection, reset, background, gameField);
+  main.append(header, audioSection, menu, background, gameField);
 
   document.body.append(main);
   /*
-- выбор шаблона
 
-- адаптив
+	- адаптив
 
-- settimeout после первого щелчка по полю (не по подсказкам) + сообщение:
-- saveGame & continueGame
+	- выбор шаблона
+
+	- saveGame & continueGame
 	*/
 }
 

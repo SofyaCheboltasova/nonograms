@@ -1,4 +1,4 @@
-const audioData = {
+const audio = {
   background: {
     class: "audio__background",
     src: "background.mp3",
@@ -26,5 +26,20 @@ const audioData = {
   },
 };
 
-export default audioData;
+const controlButtons = {
+  reset: {
+    class: "button__reset",
+    text: "Reset",
+  },
+  save: {
+    class: "button__save",
+    text: "Save",
+  },
+  continue: {
+    class: "button__continue",
+    text: "Last",
+  },
+};
+
+export { audio, controlButtons };
 

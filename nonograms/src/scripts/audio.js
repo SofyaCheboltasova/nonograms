@@ -1,4 +1,4 @@
-import audio from "./constants";
+import { audio } from "./constants";
 
 let volumeOn = false;
 

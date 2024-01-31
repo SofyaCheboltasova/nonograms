@@ -1,5 +1,11 @@
+/* eslint-disable no-console */
 import { setAudioTags, audioSwitchHandlers } from "./audio";
-import setResetHandlers from "./setResetHandlers";
+import { controlButtons } from "./constants";
+import {
+  setResetHandlers,
+  setSaveHandlers,
+  setContinueHandlers,
+} from "./menuHandlers";
 
 function setBackground() {
   const background = document.createElement("div");
@@ -28,22 +34,41 @@ function setAudioSection() {
   return audioSection;
 }
 
-function setResetButton() {
-  const button = document.createElement("button");
-
-  button.classList.add("button", "button__reset");
-  const h2 = document.createElement("h2");
-  h2.innerText = "Reset";
-  button.append(h2);
-
-  setResetHandlers(button);
-
-  return button;
+function setHandler(key, button) {
+  switch (key) {
+    case "reset":
+      setResetHandlers(button);
+      break;
+    case "save":
+      setSaveHandlers(button);
+      break;
+    case "continue":
+      setContinueHandlers(button);
+      break;
+    default:
+      break;
+  }
 }
 
-/*
-	сбросить все нажатые, сбросить крестики, восстановить answers, countPressed
-*/
+function setMenuButtons() {
+  const menu = document.createElement("div");
+  menu.classList.add("menu");
+  const keys = Object.keys(controlButtons);
 
-export { setBackground, setHeader, setAudioSection, setResetButton };
+  keys.forEach((key) => {
+    const button = document.createElement("button");
+    const h2 = document.createElement("h2");
+
+    button.classList.add("button", controlButtons[key].class);
+    h2.innerText = controlButtons[key].text;
+    button.append(h2);
+
+    setHandler(key, button);
+
+    menu.appendChild(button);
+  });
+  return menu;
+}
+
+export { setBackground, setHeader, setAudioSection, setMenuButtons };
 
