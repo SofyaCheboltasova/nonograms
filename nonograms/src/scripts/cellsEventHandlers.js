@@ -7,6 +7,10 @@ let countClickedCells = 0;
 const pressed = "cell_pressed";
 const crossed = "cell_crossed";
 
+function resetClickedCells() {
+  countClickedCells = 0;
+}
+
 function containsClass(cell, cClass) {
   return cell.classList.contains(cClass);
 }
@@ -87,5 +91,5 @@ function setCellsEventListeners(size, nonogram) {
   }
 }
 
-export default setCellsEventListeners;
+export { setCellsEventListeners, resetClickedCells };
 

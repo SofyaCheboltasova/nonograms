@@ -1,4 +1,5 @@
-import { setAudioTags, switchAudio } from "./audio";
+import { setAudioTags, audioSwitchHandlers } from "./audio";
+import setResetHandlers from "./setResetHandlers";
 
 function setBackground() {
   const background = document.createElement("div");
@@ -22,7 +23,7 @@ function setAudioSection() {
   audioSection.classList.add("button", "button__audio_off");
   audioSection.appendChild(audioTags);
 
-  switchAudio(audioSection);
+  audioSwitchHandlers(audioSection);
 
   return audioSection;
 }
@@ -35,8 +36,14 @@ function setResetButton() {
   h2.innerText = "Reset";
   button.append(h2);
 
+  setResetHandlers(button);
+
   return button;
 }
+
+/*
+	сбросить все нажатые, сбросить крестики, восстановить answers, countPressed
+*/
 
 export { setBackground, setHeader, setAudioSection, setResetButton };
 

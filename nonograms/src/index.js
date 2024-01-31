@@ -2,7 +2,7 @@ import "./sass/main.scss";
 
 import setClues from "./scripts/setClues";
 import setGameField from "./scripts/setGameField";
-import setCellsEventListeners from "./scripts/cellsEventHandlers";
+import { setCellsEventListeners } from "./scripts/cellsEventHandlers";
 import { getNonogram, setNonogram } from "./scripts/nonogram";
 import {
   setHeader,

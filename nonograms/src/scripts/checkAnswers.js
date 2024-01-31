@@ -1,11 +1,20 @@
 const answers = [];
+const puzzleCopy = [];
 let size;
+
+export function resetAnswers() {
+  for (let i = 0; i < puzzleCopy.length; i += 1) {
+    answers[i] = puzzleCopy[i];
+  }
+}
 
 export function initAnswersArray(puzzle) {
   size = puzzle.length;
+
   for (let i = 0; i < puzzle.length; i += 1) {
     for (let j = 0; j < puzzle[i].length; j += 1) {
       answers[i * puzzle.length + j] = puzzle[i][j];
+      puzzleCopy[i * puzzle.length + j] = puzzle[i][j];
     }
   }
 }

@@ -24,7 +24,7 @@ function setAudioOn(audioClass) {
   }
 }
 
-function switchAudio(section) {
+function audioSwitchHandlers(section) {
   section.addEventListener("click", () => {
     if (section.classList.contains("button__audio_on")) {
       section.classList.remove("button__audio_on");
@@ -67,5 +67,5 @@ function setAudioTags() {
   return section;
 }
 
-export { audio, setAudioOn, setAudioOff, setAudioTags, switchAudio };
+export { audio, setAudioOn, setAudioOff, setAudioTags, audioSwitchHandlers };
 
