@@ -39,8 +39,6 @@ async function setMainTemplate() {
 
 - адаптив
 
-- reset game
-
 - settimeout после первого щелчка по полю (не по подсказкам) + сообщение:
 - saveGame & continueGame
 	*/
