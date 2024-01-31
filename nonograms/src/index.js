@@ -8,7 +8,8 @@ import {
   setHeader,
   setBackground,
   setAudioSection,
-} from "./scripts/setBackground";
+  setResetButton,
+} from "./scripts/background";
 
 const size = 5;
 
@@ -27,9 +28,10 @@ async function setMainTemplate() {
   const header = setHeader();
   const audioSection = setAudioSection();
   const background = setBackground();
+  const reset = setResetButton();
   const gameField = setGameField(size);
 
-  main.append(header, audioSection, background, gameField);
+  main.append(header, audioSection, reset, background, gameField);
 
   document.body.append(main);
   /*

@@ -26,11 +26,11 @@ function setAudioOn(audioClass) {
 
 function switchAudio(section) {
   section.addEventListener("click", () => {
-    if (section.classList.contains("main__audio_on")) {
-      section.classList.remove("main__audio_on");
+    if (section.classList.contains("button__audio_on")) {
+      section.classList.remove("button__audio_on");
       setAudioOff();
     } else {
-      section.classList.add("main__audio_on");
+      section.classList.add("button", "button__audio_on");
       setAudioOn(audio.background.class);
     }
   });

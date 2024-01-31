@@ -1,0 +1,45 @@
+.button {
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.button__audio_off {
+  @include basicRectangle(
+    $size-cell / 2,
+    $size-cell / 2,
+    url(../assets/images/sound-off.svg)
+  );
+
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+}
+
+.button__audio_on {
+  background: url(../assets/images/sound-on.svg);
+}
+
+.button__reset {
+  @include basicRectangle($size-cell / 2, $size-cell / 2);
+
+  position: fixed;
+  top: 2vh;
+  left: 2vw;
+
+  border-radius: 100px;
+  color: $color-cell-additional;
+  border: $border-cell solid $color-cell-additional;
+
+  &:hover {
+    box-shadow: $shadow-button;
+  }
+}
+

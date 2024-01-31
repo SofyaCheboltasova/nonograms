@@ -19,7 +19,7 @@ function setAudioSection() {
   const audioSection = document.createElement("div");
   const audioTags = setAudioTags();
 
-  audioSection.classList.add("main__audio_off");
+  audioSection.classList.add("button", "button__audio_off");
   audioSection.appendChild(audioTags);
 
   switchAudio(audioSection);
@@ -27,5 +27,16 @@ function setAudioSection() {
   return audioSection;
 }
 
-export { setBackground, setHeader, setAudioSection };
+function setResetButton() {
+  const button = document.createElement("button");
+
+  button.classList.add("button", "button__reset");
+  const h2 = document.createElement("h2");
+  h2.innerText = "Reset";
+  button.append(h2);
+
+  return button;
+}
+
+export { setBackground, setHeader, setAudioSection, setResetButton };
 
