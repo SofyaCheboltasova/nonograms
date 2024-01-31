@@ -3,11 +3,13 @@
 
   border: $border-cell solid $color-cell-additional;
   cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
 
   &:hover {
-    background: $color-cell-hover;
+    z-index: 2;
     transform: scale(1.1);
-    transition: all 0.4s ease;
+    outline: $border-cell solid $color-background;
   }
 
   &:active {
@@ -15,13 +17,18 @@
   }
 
   &:not(:hover) {
-    transition: all 0.4s ease;
+    z-index: 1;
   }
 }
 
 .cell_pressed {
   background: $color-cell-hover;
   outline: $border-cell solid $color-background;
+}
+
+.cell_crossed {
+  background: url(../assets/images/cross.svg);
+  background-color: $color-cell-primary;
 }
 
 .cell_clue {

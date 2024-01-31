@@ -1,6 +1,8 @@
 const answers = [];
+let size;
 
 export function initAnswersArray(puzzle) {
+  size = puzzle.length;
   for (let i = 0; i < puzzle.length; i += 1) {
     for (let j = 0; j < puzzle[i].length; j += 1) {
       answers[i * puzzle.length + j] = puzzle[i][j];
@@ -8,9 +10,9 @@ export function initAnswersArray(puzzle) {
   }
 }
 
-export function updateAnswersArray(value, size, coordinates) {
-  const { x, y } = coordinates;
-  answers[x * size + y] = value;
+export function updateAnswersArray(value, coordinates) {
+  const { i, j } = coordinates;
+  answers[i * size + j] = value;
 }
 
 export function isSolved() {

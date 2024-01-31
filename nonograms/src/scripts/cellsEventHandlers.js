@@ -1,56 +1,73 @@
 /* eslint-disable no-unused-expressions */
-/* eslint-disable no-alert */
 
 import { initAnswersArray, updateAnswersArray, isSolved } from "./checkAnswers";
 import setEndMessage from "./setEndMessage";
 
 let countClickedCells = 0;
 
-function isCellPressed(cell) {
-  return cell.classList.contains("cell_pressed");
+function containsClass(cell, cClass) {
+  return cell.classList.contains(cClass);
 }
 
-function checkClickedCells(filled) {
+function comparePics(filled) {
   if (countClickedCells === filled && isSolved()) {
     setEndMessage(isSolved());
   }
 }
 
 function pressCell(cellData, puzzle, filled) {
-  const { cell, i: x, j: y } = cellData;
-
+  const { cell, i, j } = cellData;
   cell.classList.add("cell_pressed");
   countClickedCells += 1;
 
-  if (puzzle[x][y] === 1) {
-    updateAnswersArray(0, puzzle.length, { x, y });
+  if (containsClass(cell, "cell_crossed")) {
+    cell.classList.remove("cell_crossed");
   }
 
-  checkClickedCells(filled);
+  if (puzzle[i][j] === 1) {
+    updateAnswersArray(0, { i, j });
+  }
+
+  comparePics(filled);
 }
 
 function unpressCell(cellData, puzzle, filled) {
-  const { cell, i: x, j: y } = cellData;
+  const { cell, i, j } = cellData;
 
   cell.classList.remove("cell_pressed");
   countClickedCells -= 1;
 
-  updateAnswersArray(puzzle[x][y], puzzle.length, { x, y });
-  checkClickedCells(filled);
+  updateAnswersArray(puzzle[i][j], { i, j });
+  comparePics(filled);
+}
+
+function setCross(cellData, puzzle, filled) {
+  const { cell } = cellData;
+  cell.classList.add("cell_crossed");
+
+  if (containsClass(cell, "cell_pressed") && countClickedCells > 0) {
+    unpressCell(cellData, puzzle, filled);
+  }
 }
 
 function setCellsEventListeners(size, nonogram) {
   const { puzzle, filled } = nonogram;
+  const cells = document.querySelectorAll(".cell");
 
   initAnswersArray(puzzle);
-  const cells = document.querySelectorAll(".cell");
 
   for (let i = 0; i < size; i += 1) {
     for (let j = 0; j < size; j += 1) {
       const cell = cells[i * size + j];
 
-      cell.addEventListener("click", () => {
-        isCellPressed(cell)
+      cell.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        setCross({ cell, i, j }, puzzle, filled);
+        return false;
+      });
+
+      cell.addEventListener("click", (e) => {
+        e.button === 0 && containsClass(cell, "cell_pressed")
           ? unpressCell({ cell, i, j }, puzzle, filled)
           : pressCell({ cell, i, j }, puzzle, filled);
       });
