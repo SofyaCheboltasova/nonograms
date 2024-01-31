@@ -11,7 +11,7 @@ function resetCellStyles() {
   }
 
   for (let i = 0; i < crossed.length; i += 1) {
-    pressed[i].classList.remove("cell_crossed");
+    crossed[i].classList.remove("cell_crossed");
   }
 }
 
