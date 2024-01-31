@@ -26,3 +26,11 @@
   transition: all 1s cubic-bezier(0, -0.27, 1, 1.27);
 }
 
+.main__audio_off {
+  @include basicRectangle(
+    $size-cell,
+    $size-cell,
+    url(../assets/images/sound-off.svg)
+  );
+}
+

@@ -13,3 +13,10 @@ export function setHeader() {
   return header;
 }
 
+export function setAudio() {
+  const audioIcon = document.createElement("div");
+  audioIcon.classList.add(".main__audio_off");
+
+  return audioIcon;
+}
+
