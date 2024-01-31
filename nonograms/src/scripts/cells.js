@@ -1,31 +1,36 @@
 /* eslint-disable no-unused-expressions */
-import { initAnswersArray, updateAnswersArray, isSolved } from "./checkAnswers";
+import { initAnswersArray, updateAnswersArray, isSolved } from "./answers";
 import { setAudioOn, audio } from "./audio";
-import setEndMessage from "./setEndMessage";
+import { isTimerStarted, setEndMessage } from "./header";
 
 let countClickedCells = 0;
 const pressed = "cell_pressed";
 const crossed = "cell_crossed";
+let solved = false;
 
 function resetClickedCells() {
   countClickedCells = 0;
+  solved = false;
 }
 
 function containsClass(cell, cClass) {
   return cell.classList.contains(cClass);
 }
 
-function comparePics(filled) {
-  if (countClickedCells === filled && isSolved()) {
-    setEndMessage(isSolved());
-  }
-}
-
 function editClass(cell, className, isAdd = true) {
   isAdd ? cell.classList.add(className) : cell.classList.remove(className);
 }
 
+function comparePics(filled) {
+  if (countClickedCells === filled && isSolved()) {
+    solved = true;
+    setEndMessage();
+  }
+}
+
 function pressCell(cellData, nonogram) {
+  if (solved) return;
+
   const { cell, i, j } = cellData;
   const { puzzle, filled } = nonogram;
   countClickedCells += 1;
@@ -45,6 +50,8 @@ function pressCell(cellData, nonogram) {
 }
 
 function unpressCell(cellData, nonogram, audioClass = audio.cellLight.class) {
+  if (solved) return;
+
   const { cell, i, j } = cellData;
   const { puzzle, filled } = nonogram;
 
@@ -57,6 +64,8 @@ function unpressCell(cellData, nonogram, audioClass = audio.cellLight.class) {
 }
 
 function setCross(cellData, nonogram) {
+  if (solved) return;
+
   const { cell } = cellData;
   editClass(cell, crossed);
 
@@ -79,10 +88,12 @@ function setCellsEventListeners(size, nonogram) {
 
       cell.addEventListener("contextmenu", (e) => {
         e.preventDefault();
+        isTimerStarted();
         setCross(cellData, nonogram);
       });
 
       cell.addEventListener("click", (e) => {
+        isTimerStarted();
         e.button === 0 && containsClass(cell, pressed)
           ? unpressCell(cellData, nonogram)
           : pressCell(cellData, nonogram);

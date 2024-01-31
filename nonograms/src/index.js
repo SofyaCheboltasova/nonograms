@@ -2,10 +2,10 @@ import "./sass/main.scss";
 
 import setClues from "./scripts/setClues";
 import setGameField from "./scripts/setGameField";
-import { setCellsEventListeners } from "./scripts/cellsEventHandlers";
+import { setCellsEventListeners } from "./scripts/cells";
 import { getNonogram, setNonogram } from "./scripts/nonogram";
+import { setHeader } from "./scripts/header";
 import {
-  setHeader,
   setBackground,
   setAudioSection,
   setResetButton,

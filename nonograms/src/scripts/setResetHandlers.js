@@ -1,6 +1,6 @@
-import { resetAnswers } from "./checkAnswers";
-import { resetClickedCells } from "./cellsEventHandlers";
-import setEndMessage from "./setEndMessage";
+import { resetAnswers } from "./answers";
+import { resetClickedCells } from "./cells";
+import { resetHeader } from "./header";
 
 function resetCellStyles() {
   const pressed = document.querySelectorAll(".cell_pressed");
@@ -20,7 +20,7 @@ function setResetHandlers(button) {
     resetCellStyles();
     resetAnswers();
     resetClickedCells();
-    setEndMessage(false);
+    resetHeader();
   });
 }
 
