@@ -11,10 +11,22 @@ function saveCoordsInLocalSt(clickedClass) {
   localStorage.setItem(`${clickedClass}`, JSON.stringify(clickedCoords));
 }
 
-function saveAnswers(clickedClasses) {
+function saveClickedCells(clickedClasses) {
   for (let i = 0; i < clickedClasses.length; i += 1) {
     saveCoordsInLocalSt(clickedClasses[i]);
   }
+}
+
+function restoreAnswers() {
+  const savedAnswers = JSON.parse(localStorage.getItem("savedAnswers"));
+
+  for (let i = 0; i < savedAnswers.length; i += 1) {
+    answers[i] = savedAnswers[i];
+  }
+}
+
+function saveAnswers() {
+  localStorage.setItem("savedAnswers", JSON.stringify(answers));
 }
 
 function restoreSavedCells(clickedClass) {
@@ -60,6 +72,7 @@ function updateAnswersArray(value, coordinates) {
 }
 
 function isSolved() {
+  console.error(answers);
   for (let i = 0; i < answers.length; i += 1) {
     if (answers[i] !== 0) {
       return false;
@@ -73,7 +86,9 @@ export {
   updateAnswersArray,
   initAnswersArray,
   resetAnswers,
+  restoreAnswers,
   saveAnswers,
+  saveClickedCells,
   restoreSavedField,
 };
 

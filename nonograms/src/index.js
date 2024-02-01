@@ -35,12 +35,11 @@ async function setMainTemplate() {
   /*
 
 	- адаптив
-
+	- шрифт
 	- выбор шаблона
+	- восстанавливать clues и старую нонограму
 	
 	- mvc
-
-	- saveGame & continueGame
 	*/
 }
 

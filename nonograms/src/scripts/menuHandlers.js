@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 import {
   resetAnswers,
+  saveClickedCells,
   saveAnswers,
   restoreSavedField,
   initAnswersArray,
+  restoreAnswers,
 } from "./answers";
 import {
   resetCellStyles,
@@ -11,7 +13,7 @@ import {
   clickedCellsCount,
   updateCountClickedCells,
 } from "./cells";
-import { setNonogram } from "./nonogram";
+import { setNonogram, saveLastNonogram, setSavedNonogram } from "./nonogram";
 import setClues from "./setClues";
 import { resetHeader } from "./header";
 
@@ -29,7 +31,9 @@ function setResetHandlers(button) {
 function setSaveHandlers(button) {
   button.addEventListener("click", () => {
     if (clickedCellsCount() === 0) return;
-    saveAnswers(clickedClasses);
+    saveClickedCells(clickedClasses);
+    saveAnswers();
+    saveLastNonogram();
   });
 }
 
@@ -50,7 +54,10 @@ function setContinueHandlers(button) {
     if (!checkLocalStorage()) return;
 
     resetCellStyles();
+    restoreAnswers();
     restoreSavedField(clickedClasses);
+    setSavedNonogram();
+    setClues();
     updateCountClickedCells();
   });
 }

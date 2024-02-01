@@ -1,4 +1,5 @@
-let nonogram;
+/* eslint-disable no-console */
+// let nonogram;
 
 async function fetchRequest() {
   const request = await fetch("/assets/nonograms/5x5.json");
@@ -9,6 +10,16 @@ async function fetchRequest() {
 function getRandomNonogramKey(length) {
   const randomKey = Math.floor(Math.random() * length);
   return randomKey;
+}
+
+function saveLastNonogram() {
+  const savedNonogram = JSON.parse(localStorage.getItem("nonogram"));
+  localStorage.setItem("savedNonogram", JSON.stringify(savedNonogram));
+}
+
+function setSavedNonogram() {
+  const savedNonogram = JSON.parse(localStorage.getItem("savedNonogram"));
+  localStorage.setItem("nonogram", JSON.stringify(savedNonogram));
 }
 
 async function getRandomNonogram() {
@@ -25,13 +36,13 @@ async function getRandomNonogram() {
 
 async function setNonogram() {
   const randomNonogram = await getRandomNonogram();
-  nonogram = randomNonogram;
-  localStorage.setItem("nonogram", JSON.stringify(nonogram));
+  localStorage.setItem("nonogram", JSON.stringify(randomNonogram));
 }
 
 function getNonogram() {
+  const nonogram = JSON.parse(localStorage.getItem("nonogram"));
   return nonogram;
 }
 
-export { setNonogram, getNonogram };
+export { setNonogram, getNonogram, saveLastNonogram, setSavedNonogram };
 

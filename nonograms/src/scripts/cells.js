@@ -23,6 +23,7 @@ function resetClickedCells() {
 function updateCountClickedCells() {
   const clickedCells = document.querySelectorAll(".cell_pressed");
   countClickedCells = clickedCells.length;
+  solved = false;
 }
 
 function resetCellStyles() {
@@ -47,6 +48,7 @@ function editClass(cell, className, isAdd = true) {
 }
 
 function comparePics(filled) {
+  console.error(countClickedCells, filled, isSolved());
   if (countClickedCells === filled && isSolved()) {
     solved = true;
     setEndMessage();
