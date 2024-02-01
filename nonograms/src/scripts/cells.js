@@ -93,15 +93,13 @@ function unpressCell(cellData, audioClass = audio.cellLight.class) {
 }
 
 function setCross(cellData) {
-  const nonogram = getNonogram();
-
   if (solved) return;
 
   const { cell } = cellData;
   editClass(cell, crossed);
 
   if (containsClass(cell, pressed) && countClickedCells > 0) {
-    unpressCell(cellData, nonogram, audio.cellCross.class);
+    unpressCell(cellData, audio.cellCross.class);
   } else {
     setAudioOn(audio.cellCross.class);
   }

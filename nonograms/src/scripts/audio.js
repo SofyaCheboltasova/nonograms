@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { audio } from "./constants";
 
 let volumeOn = false;
@@ -14,6 +15,7 @@ function setAudioOff() {
 }
 
 function setAudioOn(audioClass) {
+  console.error(audioClass);
   const sound = document.querySelector(`.${audioClass}`);
 
   if (audio.background.class === audioClass) {
