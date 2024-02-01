@@ -13,6 +13,7 @@ import {
   clickedCellsCount,
   updateCountClickedCells,
 } from "./cells";
+import setSizeButtons from "./templates";
 import { setNonogram, saveLastNonogram, setSavedNonogram } from "./nonogram";
 import setClues from "./setClues";
 import { resetHeader } from "./header";
@@ -74,10 +75,24 @@ function setNewGameHandlers(button) {
   });
 }
 
+function setTemplatesHandlers(button) {
+  setSizeButtons();
+
+  button.addEventListener("click", () => {
+    const template = document.querySelector(".templates__wrapper");
+    if (template.classList.contains("templates__wrapper_hidden")) {
+      template.classList.remove("templates__wrapper_hidden");
+    } else {
+      template.classList.add("templates__wrapper_hidden");
+    }
+  });
+}
+
 export {
   setResetHandlers,
   setSaveHandlers,
   setContinueHandlers,
   setNewGameHandlers,
+  setTemplatesHandlers,
 };
 

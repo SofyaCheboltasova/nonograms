@@ -1,0 +1,14 @@
+.templates__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.templates__wrapper_hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+

@@ -45,5 +45,7 @@ const controlButtons = {
   },
 };
 
-export { audio, controlButtons };
+const nonogramSizes = [5, 10, 15];
+
+export { audio, controlButtons, nonogramSizes };
 

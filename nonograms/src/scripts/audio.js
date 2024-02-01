@@ -15,7 +15,6 @@ function setAudioOff() {
 }
 
 function setAudioOn(audioClass) {
-  console.error(audioClass);
   const sound = document.querySelector(`.${audioClass}`);
 
   if (audio.background.class === audioClass) {

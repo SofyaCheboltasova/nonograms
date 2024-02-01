@@ -6,7 +6,9 @@ import {
   setSaveHandlers,
   setContinueHandlers,
   setNewGameHandlers,
+  setTemplatesHandlers,
 } from "./menuHandlers";
+import setSizeButtons from "./templates";
 
 function setBackground() {
   const background = document.createElement("div");
@@ -49,6 +51,9 @@ function setHandler(key, button) {
     case "newgame":
       setNewGameHandlers(button);
       break;
+    case "template":
+      setTemplatesHandlers(button);
+      break;
     default:
       break;
   }
@@ -76,7 +81,10 @@ function setMenuButtons() {
   template.classList.add("menu__templates");
 
   const templateButton = createButton("button__templates", "Templates");
-  template.appendChild(templateButton);
+  setHandler("template", templateButton);
+  const sizeButtons = setSizeButtons();
+
+  template.append(templateButton, sizeButtons);
 
   const keys = Object.keys(controlButtons);
   keys.forEach((key) => {
