@@ -48,7 +48,6 @@ function editClass(cell, className, isAdd = true) {
 }
 
 function comparePics(filled) {
-  console.error(countClickedCells, filled, isSolved());
   if (countClickedCells === filled && isSolved()) {
     solved = true;
     setEndMessage();

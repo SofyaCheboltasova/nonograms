@@ -72,7 +72,6 @@ function updateAnswersArray(value, coordinates) {
 }
 
 function isSolved() {
-  console.error(answers);
   for (let i = 0; i < answers.length; i += 1) {
     if (answers[i] !== 0) {
       return false;

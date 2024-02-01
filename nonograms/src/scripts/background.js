@@ -54,23 +54,41 @@ function setHandler(key, button) {
   }
 }
 
+function createButton(className, text) {
+  const button = document.createElement("button");
+  const h2 = document.createElement("h2");
+
+  button.classList.add("button", className);
+  h2.innerText = text;
+  button.append(h2);
+
+  return button;
+}
+
 function setMenuButtons() {
   const menu = document.createElement("div");
   menu.classList.add("menu");
+
+  const control = document.createElement("div");
+  control.classList.add("menu__buttons");
+
+  const template = document.createElement("div");
+  template.classList.add("menu__templates");
+
+  const templateButton = createButton("button__templates", "Templates");
+  template.appendChild(templateButton);
+
   const keys = Object.keys(controlButtons);
-
   keys.forEach((key) => {
-    const button = document.createElement("button");
-    const h2 = document.createElement("h2");
-
-    button.classList.add("button", controlButtons[key].class);
-    h2.innerText = controlButtons[key].text;
-    button.append(h2);
-
+    const button = createButton(
+      controlButtons[key].class,
+      controlButtons[key].text
+    );
     setHandler(key, button);
-
-    menu.appendChild(button);
+    control.appendChild(button);
   });
+
+  menu.append(control, template);
   return menu;
 }
 
