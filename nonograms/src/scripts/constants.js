@@ -29,7 +29,7 @@ const audio = {
 const controlButtons = {
   reset: {
     class: "button__reset",
-    text: "Reset",
+    text: "Replay",
   },
   save: {
     class: "button__save",
@@ -38,6 +38,10 @@ const controlButtons = {
   continue: {
     class: "button__continue",
     text: "Last",
+  },
+  newgame: {
+    class: "button__newgame",
+    text: "New game",
   },
 };
 

@@ -3,7 +3,7 @@ import "./sass/main.scss";
 import setClues from "./scripts/setClues";
 import setGameField from "./scripts/setGameField";
 import { setCellsEventListeners } from "./scripts/cells";
-import { getNonogram, setNonogram } from "./scripts/nonogram";
+import { setNonogram } from "./scripts/nonogram";
 import { setHeader } from "./scripts/header";
 import {
   setBackground,
@@ -15,10 +15,8 @@ const size = 5;
 
 async function setLogic() {
   await setNonogram();
-  const nonogram = getNonogram();
-
-  setClues(nonogram);
-  setCellsEventListeners(size, nonogram);
+  setClues();
+  setCellsEventListeners(size);
 }
 
 async function setMainTemplate() {
@@ -39,6 +37,8 @@ async function setMainTemplate() {
 	- адаптив
 
 	- выбор шаблона
+	
+	- mvc
 
 	- saveGame & continueGame
 	*/

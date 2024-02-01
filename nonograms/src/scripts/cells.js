@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-expressions */
 import { initAnswersArray, updateAnswersArray, isSolved } from "./answers";
 import { setAudioOn, audio } from "./audio";
+import { getNonogram } from "./nonogram";
 import { isTimerStarted, setEndMessage } from "./header";
 
 const pressed = "cell_pressed";
@@ -52,7 +53,9 @@ function comparePics(filled) {
   }
 }
 
-function pressCell(cellData, nonogram) {
+function pressCell(cellData) {
+  const nonogram = getNonogram();
+
   if (solved) return;
 
   const { cell, i, j } = cellData;
@@ -73,8 +76,9 @@ function pressCell(cellData, nonogram) {
   comparePics(filled);
 }
 
-function unpressCell(cellData, nonogram, audioClass = audio.cellLight.class) {
+function unpressCell(cellData, audioClass = audio.cellLight.class) {
   if (solved) return;
+  const nonogram = getNonogram();
 
   const { cell, i, j } = cellData;
   const { puzzle, filled } = nonogram;
@@ -87,7 +91,9 @@ function unpressCell(cellData, nonogram, audioClass = audio.cellLight.class) {
   comparePics(filled);
 }
 
-function setCross(cellData, nonogram) {
+function setCross(cellData) {
+  const nonogram = getNonogram();
+
   if (solved) return;
 
   const { cell } = cellData;
@@ -100,8 +106,8 @@ function setCross(cellData, nonogram) {
   }
 }
 
-function setCellsEventListeners(size, nonogram) {
-  initAnswersArray(nonogram.puzzle);
+function setCellsEventListeners(size) {
+  initAnswersArray();
 
   const cells = document.querySelectorAll(".cell");
 
@@ -113,14 +119,14 @@ function setCellsEventListeners(size, nonogram) {
       cell.addEventListener("contextmenu", (e) => {
         e.preventDefault();
         isTimerStarted();
-        setCross(cellData, nonogram);
+        setCross(cellData);
       });
 
       cell.addEventListener("click", (e) => {
         isTimerStarted();
         e.button === 0 && containsClass(cell, pressed)
-          ? unpressCell(cellData, nonogram)
-          : pressCell(cellData, nonogram);
+          ? unpressCell(cellData)
+          : pressCell(cellData);
       });
     }
   }

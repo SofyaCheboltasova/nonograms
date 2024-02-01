@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const answers = [];
 const puzzleCopy = [];
 let size;
@@ -40,7 +41,9 @@ function resetAnswers() {
   }
 }
 
-function initAnswersArray(puzzle) {
+function initAnswersArray() {
+  const nonogram = JSON.parse(localStorage.getItem("nonogram"));
+  const { puzzle } = nonogram;
   size = puzzle.length;
 
   for (let i = 0; i < puzzle.length; i += 1) {

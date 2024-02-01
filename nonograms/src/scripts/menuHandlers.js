@@ -1,11 +1,18 @@
 /* eslint-disable no-console */
-import { resetAnswers, saveAnswers, restoreSavedField } from "./answers";
+import {
+  resetAnswers,
+  saveAnswers,
+  restoreSavedField,
+  initAnswersArray,
+} from "./answers";
 import {
   resetCellStyles,
   resetClickedCells,
   clickedCellsCount,
   updateCountClickedCells,
 } from "./cells";
+import { setNonogram } from "./nonogram";
+import setClues from "./setClues";
 import { resetHeader } from "./header";
 
 const clickedClasses = ["cell_pressed", "cell_crossed"];
@@ -18,6 +25,7 @@ function setResetHandlers(button) {
     resetHeader();
   });
 }
+
 function setSaveHandlers(button) {
   button.addEventListener("click", () => {
     if (clickedCellsCount() === 0) return;
@@ -32,8 +40,6 @@ function isClassSaved(className) {
 function checkLocalStorage() {
   let isLocalStorageFilled = false;
   for (let i = 0; i < clickedClasses.length; i += 1) {
-    console.error(isLocalStorageFilled);
-
     isLocalStorageFilled ||= isClassSaved(clickedClasses[i]);
   }
   return isLocalStorageFilled;
@@ -49,5 +55,22 @@ function setContinueHandlers(button) {
   });
 }
 
-export { setResetHandlers, setSaveHandlers, setContinueHandlers };
+function setNewGameHandlers(button) {
+  button.addEventListener("click", async () => {
+    resetCellStyles();
+    resetClickedCells();
+    resetHeader();
+
+    await setNonogram();
+    initAnswersArray();
+    setClues();
+  });
+}
+
+export {
+  setResetHandlers,
+  setSaveHandlers,
+  setContinueHandlers,
+  setNewGameHandlers,
+};
 

@@ -5,6 +5,7 @@ import {
   setResetHandlers,
   setSaveHandlers,
   setContinueHandlers,
+  setNewGameHandlers,
 } from "./menuHandlers";
 
 function setBackground() {
@@ -44,6 +45,9 @@ function setHandler(key, button) {
       break;
     case "continue":
       setContinueHandlers(button);
+      break;
+    case "newgame":
+      setNewGameHandlers(button);
       break;
     default:
       break;

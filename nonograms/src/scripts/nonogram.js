@@ -23,12 +23,15 @@ async function getRandomNonogram() {
   return nonograms[newKey];
 }
 
-export async function setNonogram() {
+async function setNonogram() {
   const randomNonogram = await getRandomNonogram();
   nonogram = randomNonogram;
+  localStorage.setItem("nonogram", JSON.stringify(nonogram));
 }
 
-export function getNonogram() {
+function getNonogram() {
   return nonogram;
 }
+
+export { setNonogram, getNonogram };
 
