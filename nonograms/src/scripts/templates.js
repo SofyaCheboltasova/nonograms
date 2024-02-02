@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { nonogramSizes } from "./constants";
+import resetGame from "./resetGame";
 
 async function getTemplates(size) {
   const file = `${size}x${size}.json`;
@@ -19,8 +20,11 @@ function setNamesButtons(text) {
   return button;
 }
 
-function setNamesButtonHandlers(button) {
-  button.addEventListener("click", () => {});
+function setNamesButtonHandlers(button, nonogram) {
+  button.addEventListener("click", () => {
+    localStorage.setItem("nonogram", JSON.stringify(nonogram));
+    resetGame();
+  });
 }
 
 // нажатие на size

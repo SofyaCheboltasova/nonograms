@@ -4,7 +4,7 @@ import {
   saveClickedCells,
   saveAnswers,
   restoreSavedField,
-  initAnswersArray,
+  // initAnswersArray,
   restoreAnswers,
 } from "./answers";
 import {
@@ -17,6 +17,7 @@ import { showHideMenu } from "./templates";
 import { setNonogram, saveLastNonogram, setSavedNonogram } from "./nonogram";
 import setClues from "./setClues";
 import { resetHeader } from "./header";
+import resetGame from "./resetGame";
 
 const clickedClasses = ["cell_pressed", "cell_crossed"];
 
@@ -65,13 +66,16 @@ function setContinueHandlers(button) {
 
 function setNewGameHandlers(button) {
   button.addEventListener("click", async () => {
-    resetCellStyles();
-    resetClickedCells();
-    resetHeader();
-
     await setNonogram();
-    initAnswersArray();
-    setClues();
+
+    resetGame();
+    // resetCellStyles();
+    // resetClickedCells();
+    // resetHeader();
+
+    // await setNonogram();
+    // initAnswersArray();
+    // setClues();
   });
 }
 
@@ -88,4 +92,9 @@ export {
   setNewGameHandlers,
   setTemplatesHandlers,
 };
+
+/*
+	background -> menuHandlers -> templates 
+
+*/
 

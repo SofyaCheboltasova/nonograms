@@ -16,6 +16,7 @@ $size-divider: $size-game-field - $size-cell + $border-table;
 
 $shadow-game-field: -5px -5px 44px $color-shadow;
 $shadow-button: 0px 0px 10px 0px #84264437 inset;
-$shadow-cell: 0px 0px 45px 0px #842644ce inset;
+$shadow: 0px 0px 45px 0px $color-cell-additional inset;
+$shadow-cell: 0px 0px 45px 0px #842644ce;
 $radius-game-field: 2rem;
 
