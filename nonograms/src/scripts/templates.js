@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 import { nonogramSizes } from "./constants";
 
-async function getTemplateKeys(size) {
+async function getTemplates(size) {
   const file = `${size}x${size}.json`;
   const request = await fetch(`/assets/nonograms/${file}`);
   const nonograms = await request.json();
-  return Object.keys(nonograms);
+  return nonograms;
 }
 
 // Кнопки с названиями
@@ -19,6 +19,10 @@ function setNamesButtons(text) {
   return button;
 }
 
+function setNamesButtonHandlers(button) {
+  button.addEventListener("click", () => {});
+}
+
 // нажатие на size
 function setSizesButtonHandlers(size, button) {
   button.addEventListener("click", async () => {
@@ -29,19 +33,15 @@ function setSizesButtonHandlers(size, button) {
     templatesNames.classList.remove("templates__names_hidden");
     templatesNames.innerHTML = "";
 
-    const keys = await getTemplateKeys(size);
+    const templates = await getTemplates(size);
+    const keys = Object.keys(templates);
+    const values = Object.values(templates);
 
     for (let i = 0; i < keys.length; i += 1) {
       const templateButton = setNamesButtons(keys[i]);
+      setNamesButtonHandlers(templateButton, values[i]);
       templatesNames.appendChild(templateButton);
     }
-
-    /*
-			- нажимаю
-			- templates__wrapper_hidden на все кнопки в templates__wrapper 
-			- появляются такие же кнопки с названиями шаблонов
-			- при нажатии меняется nonogram в localst и вызывается обработчик новой игры
-		*/
   });
 }
 
@@ -94,10 +94,10 @@ function showHideMenu() {
   if (templatesWrapper.classList.contains("templates__wrapper_hidden")) {
     templatesWrapper.classList.remove("templates__wrapper_hidden");
     templatesSizes.classList.remove("templates__sizes_hidden");
-    templatesNames.classList.add("templates__names_hidden");
   } else {
     templatesWrapper.classList.add("templates__wrapper_hidden");
   }
+  templatesNames.classList.add("templates__names_hidden");
 }
 
 export { setTemplatesButtons, showHideMenu };

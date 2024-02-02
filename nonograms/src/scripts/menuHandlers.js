@@ -76,10 +76,7 @@ function setNewGameHandlers(button) {
 }
 
 function setTemplatesHandlers(button) {
-  // setTemplatesButtons();
-
   button.addEventListener("click", () => {
-    console.error("lalala");
     showHideMenu();
   });
 }

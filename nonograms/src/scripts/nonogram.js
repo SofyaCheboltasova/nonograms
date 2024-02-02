@@ -1,6 +1,3 @@
-/* eslint-disable no-console */
-// let nonogram;
-
 async function fetchRequest() {
   const request = await fetch("/assets/nonograms/5x5.json");
   const nonograms = await request.json();
