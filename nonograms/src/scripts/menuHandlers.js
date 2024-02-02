@@ -13,7 +13,7 @@ import {
   clickedCellsCount,
   updateCountClickedCells,
 } from "./cells";
-import { showHideMenu, setTemplatesButtons } from "./templates";
+import { showHideMenu } from "./templates";
 import { setNonogram, saveLastNonogram, setSavedNonogram } from "./nonogram";
 import setClues from "./setClues";
 import { resetHeader } from "./header";
@@ -76,7 +76,7 @@ function setNewGameHandlers(button) {
 }
 
 function setTemplatesHandlers(button) {
-  setTemplatesButtons();
+  // setTemplatesButtons();
 
   button.addEventListener("click", () => {
     console.error("lalala");

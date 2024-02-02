@@ -14,7 +14,7 @@ function setNamesButtons(text) {
   const h2 = document.createElement("h2");
   h2.innerText = text;
 
-  button.classList.add("buttons", "button__templates");
+  button.classList.add("button", "button__templates");
   button.appendChild(h2);
   return button;
 }
