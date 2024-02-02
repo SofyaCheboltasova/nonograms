@@ -8,7 +8,7 @@ import {
   setNewGameHandlers,
   setTemplatesHandlers,
 } from "./menuHandlers";
-import setSizeButtons from "./templates";
+import { setTemplatesButtons } from "./templates";
 
 function setBackground() {
   const background = document.createElement("div");
@@ -82,7 +82,7 @@ function setMenuButtons() {
 
   const templateButton = createButton("button__templates", "Templates");
   setHandler("template", templateButton);
-  const sizeButtons = setSizeButtons();
+  const sizeButtons = setTemplatesButtons();
 
   template.append(templateButton, sizeButtons);
 

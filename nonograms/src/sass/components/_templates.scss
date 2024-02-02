@@ -1,3 +1,5 @@
+.templates__sizes,
+.templates__names,
 .templates__wrapper {
   display: flex;
   flex-direction: column;
@@ -7,8 +9,11 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+.templates__sizes_hidden,
+.templates__names_hidden,
 .templates__wrapper_hidden {
   opacity: 0;
+  display: none;
   pointer-events: none;
 }
 
