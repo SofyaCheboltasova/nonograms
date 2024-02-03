@@ -67,15 +67,7 @@ function setContinueHandlers(button) {
 function setNewGameHandlers(button) {
   button.addEventListener("click", async () => {
     await setNonogram();
-
     resetGame();
-    // resetCellStyles();
-    // resetClickedCells();
-    // resetHeader();
-
-    // await setNonogram();
-    // initAnswersArray();
-    // setClues();
   });
 }
 
@@ -92,9 +84,4 @@ export {
   setNewGameHandlers,
   setTemplatesHandlers,
 };
-
-/*
-	background -> menuHandlers -> templates 
-
-*/
 

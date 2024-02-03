@@ -4,21 +4,25 @@ async function fetchRequest() {
   return Object.values(nonograms);
 }
 
+// model
 function getRandomNonogramKey(length) {
   const randomKey = Math.floor(Math.random() * length);
   return randomKey;
 }
 
+// model
 function saveLastNonogram() {
   const savedNonogram = JSON.parse(localStorage.getItem("nonogram"));
   localStorage.setItem("savedNonogram", JSON.stringify(savedNonogram));
 }
 
+// model
 function setSavedNonogram() {
   const savedNonogram = JSON.parse(localStorage.getItem("savedNonogram"));
   localStorage.setItem("nonogram", JSON.stringify(savedNonogram));
 }
 
+// controller
 async function getRandomNonogram() {
   const nonograms = await fetchRequest();
   const lastKey = localStorage.nonogramKey;
@@ -31,11 +35,13 @@ async function getRandomNonogram() {
   return nonograms[newKey];
 }
 
+// controller
 async function setNonogram() {
   const randomNonogram = await getRandomNonogram();
   localStorage.setItem("nonogram", JSON.stringify(randomNonogram));
 }
 
+// model
 function getNonogram() {
   const nonogram = JSON.parse(localStorage.getItem("nonogram"));
   return nonogram;

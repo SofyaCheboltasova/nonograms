@@ -32,15 +32,16 @@ async function setMainTemplate() {
   main.append(header, audioSection, menu, background, gameField);
 
   document.body.append(main);
-  /*
+}
 
+setMainTemplate();
+setLogic();
+
+// last -> скидывать запоминать таймер
+/*
 	- адаптив
 	- шрифт
 	- выбор шаблона	
 	- mvc
 	*/
-}
-
-setMainTemplate();
-setLogic();
 
