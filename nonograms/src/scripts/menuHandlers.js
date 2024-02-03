@@ -4,14 +4,15 @@ import {
   saveClickedCells,
   saveAnswers,
   restoreSavedField,
-  // initAnswersArray,
   restoreAnswers,
+  setSolution,
 } from "./answers";
 import {
   resetCellStyles,
   resetClickedCells,
   clickedCellsCount,
   updateCountClickedCells,
+  turnOffClick,
 } from "./cells";
 import { showHideMenu } from "./templates";
 import { setNonogram, saveLastNonogram, setSavedNonogram } from "./nonogram";
@@ -77,11 +78,27 @@ function setTemplatesHandlers(button) {
   });
 }
 
+function setSolutionHandlers(button) {
+  button.addEventListener("click", () => {
+    setSolution();
+    turnOffClick();
+    resetAnswers();
+    resetHeader();
+  });
+
+  /*
+		поставить класс cell_pressed во все nonogram.puzzle
+		поставить solved = true в cells
+		поменять текст в хидере на Solution
+	*/
+}
+
 export {
   setResetHandlers,
   setSaveHandlers,
   setContinueHandlers,
   setNewGameHandlers,
   setTemplatesHandlers,
+  setSolutionHandlers,
 };
 

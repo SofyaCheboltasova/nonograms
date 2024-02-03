@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import { getNonogram } from "./nonogram";
+
 const answers = [];
 const puzzleCopy = [];
 let size;
@@ -54,7 +56,7 @@ function resetAnswers() {
 }
 
 function initAnswersArray() {
-  const nonogram = JSON.parse(localStorage.getItem("nonogram"));
+  const nonogram = getNonogram();
   const { puzzle } = nonogram;
   size = puzzle.length;
 
@@ -80,6 +82,28 @@ function isSolved() {
   return true;
 }
 
+function setSolution() {
+  const nonogram = getNonogram();
+  const { puzzle } = nonogram;
+
+  const cells = document.querySelectorAll(".cell");
+  const pressed = document.querySelectorAll(".cell_pressed");
+
+  if (pressed) {
+    pressed.forEach((cell) => {
+      cell.classList.remove("cell_pressed");
+    });
+  }
+
+  for (let i = 0; i < puzzle.length; i += 1) {
+    for (let j = 0; j < puzzle[i].length; j += 1) {
+      if (puzzle[i][j] === 1) {
+        cells[i * size + j].classList.add("cell_pressed");
+      }
+    }
+  }
+}
+
 export {
   isSolved,
   updateAnswersArray,
@@ -89,5 +113,6 @@ export {
   saveAnswers,
   saveClickedCells,
   restoreSavedField,
+  setSolution,
 };
 

@@ -105,6 +105,25 @@ function setCross(cellData) {
   }
 }
 
+function turnOffClick() {
+  solved = true;
+}
+
+function contextmenuHandler(e, cellData) {
+  if (solved) return;
+  e.preventDefault();
+  isTimerStarted();
+  setCross(cellData);
+}
+
+function clickHandler(e, cell, cellData) {
+  if (solved) return;
+  isTimerStarted();
+  e.button === 0 && containsClass(cell, pressed)
+    ? unpressCell(cellData)
+    : pressCell(cellData);
+}
+
 function setCellsEventListeners(size) {
   initAnswersArray();
 
@@ -115,18 +134,13 @@ function setCellsEventListeners(size) {
       const cell = cells[i * size + j];
       const cellData = { cell, i, j };
 
-      cell.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        isTimerStarted();
-        setCross(cellData);
-      });
+      if (solved) return;
 
-      cell.addEventListener("click", (e) => {
-        isTimerStarted();
-        e.button === 0 && containsClass(cell, pressed)
-          ? unpressCell(cellData)
-          : pressCell(cellData);
-      });
+      cell.addEventListener("contextmenu", (e) =>
+        contextmenuHandler(e, cellData)
+      );
+
+      cell.addEventListener("click", (e) => clickHandler(e, cell, cellData));
     }
   }
 }
@@ -137,5 +151,6 @@ export {
   resetCellStyles,
   updateCountClickedCells,
   clickedCellsCount,
+  turnOffClick,
 };
 

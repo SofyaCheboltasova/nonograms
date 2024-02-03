@@ -7,6 +7,7 @@ import {
   setContinueHandlers,
   setNewGameHandlers,
   setTemplatesHandlers,
+  setSolutionHandlers,
 } from "./menuHandlers";
 import { setTemplatesButtons } from "./templates";
 
@@ -53,6 +54,9 @@ function setHandler(key, button) {
       break;
     case "template":
       setTemplatesHandlers(button);
+      break;
+    case "solution":
+      setSolutionHandlers(button);
       break;
     default:
       break;

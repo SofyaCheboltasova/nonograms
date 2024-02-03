@@ -31,7 +31,8 @@
 .button__save,
 .button__continue,
 .button__newgame,
-.button__templates {
+.button__templates,
+.button__solution {
   @include basicRectangle($size-cell / 2, $size-cell / 2);
 
   border-radius: 100px;

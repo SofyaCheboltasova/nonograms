@@ -43,6 +43,10 @@ const controlButtons = {
     class: "button__newgame",
     text: "New game",
   },
+  solution: {
+    class: "button__solution",
+    text: "Solved",
+  },
 };
 
 const nonogramSizes = [5, 10, 15];
