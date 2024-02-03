@@ -10,7 +10,9 @@
 .menu__buttons {
   display: flex;
   justify-content: space-between;
-  width: $size-cell * 3;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: $size-cell * 2.5;
 }
 
 .menu__templates {
