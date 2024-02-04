@@ -8,6 +8,7 @@ import {
   setTemplatesHandlers,
   setSolutionHandlers,
   setRandomHandlers,
+  setScoreHandlers,
 } from "./menuHandlers";
 import { setTemplatesButtons } from "./templates";
 import { changeTheme } from "./theme";
@@ -69,7 +70,7 @@ function setHandler(key, button) {
       setRandomHandlers(button);
       break;
     case "score":
-      // setScoreHandlers(button);
+      setScoreHandlers(button);
       break;
     default:
       break;

@@ -1,0 +1,45 @@
+.modal {
+  display: none;
+}
+
+.modal_open {
+  display: block;
+}
+
+.modal__overlay {
+  cursor: pointer;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal__window {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @include basicRectangle($size-game-field, $size-game-field, getColor(modal));
+
+  @include flexPosition(center, left);
+  flex-direction: column;
+
+  @extend %fieldBackground;
+  color: getColor(cell-hover);
+}
+
+.window__line {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.window__line_main {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+

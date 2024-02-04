@@ -9,6 +9,11 @@
 
   position: relative;
   margin: 3rem;
+  transition: all 0.3s;
+}
+
+.gameField_closed {
+  opacity: 0;
 }
 
 .gameField__cells {

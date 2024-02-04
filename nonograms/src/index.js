@@ -11,6 +11,7 @@ import {
   setMenuButtons,
 } from "./scripts/background";
 import { setTheme } from "./scripts/theme";
+import { createScoreTable } from "./scripts/scoreTableModal";
 
 const size = 5;
 
@@ -30,19 +31,23 @@ async function setMainTemplate() {
   const background = setBackground();
   const menu = setMenuButtons();
   const gameField = setGameField(size);
+  const table = createScoreTable();
 
-  main.append(header, settings, menu, background, gameField);
+  main.append(header, settings, menu, background, gameField, table);
   document.body.append(main);
 }
 
 setMainTemplate();
 setLogic();
 
-// last -> скидывать запоминать таймер
 /*
 	- адаптив
-	- шрифт
-	- выбор шаблона	
 	- mvc
+	- 3 уровня сложности
+	- 5 последних побед
+
+
+	Score table
+
 	*/
 

@@ -19,6 +19,7 @@ import { setNonogram, saveLastNonogram, setSavedNonogram } from "./nonogram";
 import setClues from "./setClues";
 import { resetHeader } from "./header";
 import resetGame from "./resetGame";
+import { fillTable } from "./scoreTableModal";
 
 const clickedClasses = ["cell_pressed", "cell_crossed"];
 
@@ -87,6 +88,18 @@ function setSolutionHandlers(button) {
   });
 }
 
+function setScoreHandlers(button) {
+  button.addEventListener("click", () => {
+    const window = document.querySelector(".modal__window");
+    const modal = document.querySelector(".modal");
+    modal.classList.add("modal_open");
+    fillTable(window);
+
+    const field = document.querySelector(".gameField");
+    field.classList.add("gameField_closed");
+  });
+}
+
 export {
   setResetHandlers,
   setSaveHandlers,
@@ -94,5 +107,6 @@ export {
   setTemplatesHandlers,
   setSolutionHandlers,
   setRandomHandlers,
+  setScoreHandlers,
 };
 
