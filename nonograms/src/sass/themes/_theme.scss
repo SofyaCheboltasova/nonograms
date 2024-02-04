@@ -25,5 +25,10 @@ html[data-theme="dark"] {
   .button__theme_dark {
     background: url(../assets/images/theme-dark.svg);
   }
+
+  .cell_crossed {
+    background: url(../assets/images/cross_dark.svg);
+    background-color: getColor(cell-primary);
+  }
 }
 
