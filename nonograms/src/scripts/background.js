@@ -68,6 +68,9 @@ function setHandler(key, button) {
     case "random":
       setRandomHandlers(button);
       break;
+    case "score":
+      // setScoreHandlers(button);
+      break;
     default:
       break;
   }

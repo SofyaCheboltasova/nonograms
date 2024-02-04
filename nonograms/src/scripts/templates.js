@@ -14,15 +14,15 @@ function setNamesButtons(text) {
   const button = document.createElement("button");
   const h2 = document.createElement("h2");
   h2.innerText = text;
-
   button.classList.add("button", "button__templates");
   button.appendChild(h2);
   return button;
 }
 
-function setNamesButtonHandlers(button, nonogram) {
+function setNamesButtonHandlers(button, nonogram, name) {
   button.addEventListener("click", () => {
     localStorage.setItem("nonogram", JSON.stringify(nonogram));
+    localStorage.setItem("nonogramName", JSON.stringify(name));
     resetGame();
   });
 }
@@ -43,7 +43,7 @@ function setSizesButtonHandlers(size, button) {
 
     for (let i = 0; i < keys.length; i += 1) {
       const templateButton = setNamesButtons(keys[i]);
-      setNamesButtonHandlers(templateButton, values[i]);
+      setNamesButtonHandlers(templateButton, values[i], keys[i]);
       templatesNames.appendChild(templateButton);
     }
   });

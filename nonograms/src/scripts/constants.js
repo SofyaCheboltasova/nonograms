@@ -47,6 +47,10 @@ const controlButtons = {
     class: "button__menu",
     text: "Random",
   },
+  score: {
+    class: "button__menu",
+    text: "Score table",
+  },
 };
 
 const nonogramSizes = [5, 10, 15];

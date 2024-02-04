@@ -1,4 +1,5 @@
 import { audio, setAudioOn } from "./audio";
+import saveResult from "./scoreTable";
 
 let timerId;
 
@@ -62,6 +63,7 @@ function setEndMessage() {
   text.innerText = "Congrats! You're a winner!";
   header.classList.add("main__header_win");
 
+  saveResult();
   clearInterval(timerId);
   setAudioOn(audio.win.class);
 }

@@ -12,7 +12,8 @@
       [0, 0, 0, 1, 0],
       [0, 1, 1, 1, 0]
     ],
-    "filled": 11
+    "filled": 11,
+    "difficulty": "easy"
   },
   "full heart": {
     "size": 5,
@@ -27,7 +28,8 @@
       [0, 1, 1, 1, 0],
       [0, 0, 1, 0, 0]
     ],
-    "filled": 16
+    "filled": 16,
+    "difficulty": "easy"
   },
   "arrow": {
     "size": 5,
@@ -42,7 +44,8 @@
       [0, 0, 1, 0, 0],
       [0, 0, 1, 0, 0]
     ],
-    "filled": 9
+    "filled": 9,
+    "difficulty": "easy"
   },
   "heart": {
     "size": 5,
@@ -57,7 +60,8 @@
       [0, 1, 0, 1, 0],
       [0, 0, 1, 0, 0]
     ],
-    "filled": 10
+    "filled": 10,
+    "difficulty": "easy"
   },
   "smile": {
     "size": 5,
@@ -72,7 +76,8 @@
       [1, 0, 0, 0, 1],
       [0, 1, 1, 1, 0]
     ],
-    "filled": 9
+    "filled": 9,
+    "difficulty": "easy"
   }
 }
 
