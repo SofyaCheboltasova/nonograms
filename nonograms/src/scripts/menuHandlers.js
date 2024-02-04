@@ -65,7 +65,7 @@ function setContinueHandlers(button) {
   });
 }
 
-function setNewGameHandlers(button) {
+function setRandomHandlers(button) {
   button.addEventListener("click", async () => {
     await setNonogram();
     resetGame();
@@ -85,20 +85,14 @@ function setSolutionHandlers(button) {
     resetAnswers();
     resetHeader();
   });
-
-  /*
-		поставить класс cell_pressed во все nonogram.puzzle
-		поставить solved = true в cells
-		поменять текст в хидере на Solution
-	*/
 }
 
 export {
   setResetHandlers,
   setSaveHandlers,
   setContinueHandlers,
-  setNewGameHandlers,
   setTemplatesHandlers,
   setSolutionHandlers,
+  setRandomHandlers,
 };
 

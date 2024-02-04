@@ -7,9 +7,10 @@ import { setNonogram } from "./scripts/nonogram";
 import { setHeader } from "./scripts/header";
 import {
   setBackground,
-  setAudioSection,
+  setSettingsSection,
   setMenuButtons,
 } from "./scripts/background";
+import { setTheme } from "./scripts/theme";
 
 const size = 5;
 
@@ -20,17 +21,17 @@ async function setLogic() {
 }
 
 async function setMainTemplate() {
+  setTheme();
+
   const main = document.createElement("main");
   main.classList.add("main");
-
   const header = setHeader();
-  const audioSection = setAudioSection();
+  const settings = setSettingsSection();
   const background = setBackground();
   const menu = setMenuButtons();
   const gameField = setGameField(size);
 
-  main.append(header, audioSection, menu, background, gameField);
-
+  main.append(header, settings, menu, background, gameField);
   document.body.append(main);
 }
 

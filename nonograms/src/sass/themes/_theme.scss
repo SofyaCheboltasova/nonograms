@@ -1,0 +1,29 @@
+html[data-theme="dark"] {
+  --color-cell-primary: #7e6282;
+  --color-cell-additional: #36002b;
+  --color-cell-hover: #36002b;
+  --color-back: #e3e3d9;
+  --color-shadow: #2a2a2a;
+
+  --shadow-game-field: -5px -5px 44px $color-shadow;
+  --shadow-additional: 0px 0px 45px 0px $color-cell-additional inset;
+  --shadow-button: 0px 0px 10px 0px #1a08086e inset;
+  --shadow-cell: 0px 0px 45px 0px #842644ce;
+
+  .background {
+    background-image: url(../assets/images/background-dark.jpg);
+  }
+
+  .button__audio_off {
+    background: url(../assets/images/sound-off_dark.svg);
+  }
+
+  .button__audio_on {
+    background: url(../assets/images/sound-on_dark.svg);
+  }
+
+  .button__theme_dark {
+    background: url(../assets/images/theme-dark.svg);
+  }
+}
+

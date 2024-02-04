@@ -5,11 +5,12 @@ import {
   setResetHandlers,
   setSaveHandlers,
   setContinueHandlers,
-  setNewGameHandlers,
   setTemplatesHandlers,
   setSolutionHandlers,
+  setRandomHandlers,
 } from "./menuHandlers";
 import { setTemplatesButtons } from "./templates";
+import { changeTheme } from "./theme";
 
 function setBackground() {
   const background = document.createElement("div");
@@ -26,7 +27,10 @@ function setHeader() {
   return header;
 }
 
-function setAudioSection() {
+function setSettingsSection() {
+  const settings = document.createElement("div");
+  settings.classList.add("settings");
+
   const audioSection = document.createElement("div");
   const audioTags = setAudioTags();
 
@@ -35,7 +39,13 @@ function setAudioSection() {
 
   audioSwitchHandlers(audioSection);
 
-  return audioSection;
+  const theme = document.createElement("div");
+  theme.classList.add("button", "button__theme_light");
+  changeTheme(theme);
+
+  settings.append(theme, audioSection);
+
+  return settings;
 }
 
 function setHandler(key, button) {
@@ -49,14 +59,14 @@ function setHandler(key, button) {
     case "continue":
       setContinueHandlers(button);
       break;
-    case "newgame":
-      setNewGameHandlers(button);
-      break;
     case "template":
       setTemplatesHandlers(button);
       break;
     case "solution":
       setSolutionHandlers(button);
+      break;
+    case "random":
+      setRandomHandlers(button);
       break;
     default:
       break;
@@ -104,5 +114,5 @@ function setMenuButtons() {
   return menu;
 }
 
-export { setBackground, setHeader, setAudioSection, setMenuButtons };
+export { setBackground, setHeader, setSettingsSection, setMenuButtons };
 

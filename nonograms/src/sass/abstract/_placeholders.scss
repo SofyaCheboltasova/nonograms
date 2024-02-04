@@ -11,5 +11,6 @@
 %fieldBackground {
   opacity: 0.5;
   border-radius: $radius-game-field;
-  box-shadow: $shadow-game-field;
+  box-shadow: getShadow(primary);
 }
+

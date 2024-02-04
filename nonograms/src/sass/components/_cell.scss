@@ -1,7 +1,7 @@
 .cell {
-  @include basicRectangle($size-cell, $size-cell, $color-cell-primary);
+  @include basicRectangle($size-cell, $size-cell, getColor(cell-primary));
 
-  border: $border-cell solid $color-cell-additional;
+  border: $border-cell solid getColor(cell-additional);
   cursor: pointer;
   position: relative;
   transition: all 0.4s ease;
@@ -9,8 +9,8 @@
   &:hover {
     z-index: 2;
     transform: scale(1.1);
-    outline: $border-cell solid $color-background;
-    box-shadow: $shadow-cell;
+    outline: $border-cell solid getColor(back);
+    box-shadow: getShadow(cell);
   }
 
   &:active {
@@ -23,13 +23,13 @@
 }
 
 .cell_pressed {
-  background: $color-cell-hover;
-  outline: $border-cell solid $color-background;
+  background: getColor(cell-hover);
+  outline: $border-cell solid getColor(back);
 }
 
 .cell_crossed {
   background: url(../assets/images/cross.svg);
-  background-color: $color-cell-primary;
+  background-color: getColor(cell-primary);
 
   &:hover {
     box-shadow: none;
@@ -38,9 +38,9 @@
 
 .cell_clue {
   @include basicRectangle($size-cell, $size-cell);
-  border: 1px solid $color-background;
+  border: 1px solid getColor(back);
   text-align: center;
-  color: $color-background;
+  color: getColor(back);
 
   display: inline-grid;
   align-items: center;

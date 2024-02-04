@@ -9,10 +9,10 @@
 
 .menu__buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 1rem;
   flex-wrap: wrap;
-  width: $size-cell * 2.5;
+  width: $size-cell * 2;
 }
 
 .menu__templates {

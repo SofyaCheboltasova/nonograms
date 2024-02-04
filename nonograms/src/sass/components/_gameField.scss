@@ -2,7 +2,7 @@
   @include basicRectangle(
     $size-game-field,
     $size-game-field,
-    $color-cell-hover
+    getColor(cell-hover)
   );
   @include flexPosition(end, right);
   @extend %fieldBackground;
@@ -13,7 +13,7 @@
 
 .gameField__cells {
   border-collapse: collapse;
-  border: $border-table solid $color-background;
+  border: $border-table solid getColor(back);
 }
 
 .gameField__clues-wrapper {

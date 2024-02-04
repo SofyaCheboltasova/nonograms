@@ -39,10 +39,6 @@ const controlButtons = {
     class: "button__menu",
     text: "Last",
   },
-  newgame: {
-    class: "button__menu",
-    text: "New game",
-  },
   solution: {
     class: "button__menu",
     text: "Solved",

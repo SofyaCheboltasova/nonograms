@@ -1,8 +1,23 @@
-$color-cell-primary: #e097b2;
-$color-cell-additional: #872d49;
-$color-cell-hover: #893655;
-$color-background: #e3e3d9;
-$color-shadow: #ffadcc;
+html {
+  --color-cell-primary: #e097b2;
+  --color-cell-additional: #872d49;
+  --color-cell-hover: #893655;
+  --color-back: #e3e3d9;
+  --color-shadow: #ffadcc;
+
+  --shadow-primary: -5px -5px 44px $color-shadow;
+  --shadow-additional: 0px 0px 45px 0px $color-cell-additional inset;
+  --shadow-button: 0px 0px 10px 0px #84264437 inset;
+  --shadow-cell: 0px 0px 45px 0px #842644ce;
+}
+
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+@function getShadow($shadow-name) {
+  @return var(--shadow-#{$shadow-name});
+}
 
 $height-page: 100vh;
 $width-page: 100vw;
@@ -13,10 +28,5 @@ $border-cell: 0.2rem;
 $size-cell: 11.2rem;
 $size-game-field: 67.2rem;
 $size-divider: $size-game-field - $size-cell + $border-table;
-
-$shadow-game-field: -5px -5px 44px $color-shadow;
-$shadow-button: 0px 0px 10px 0px #84264437 inset;
-$shadow: 0px 0px 45px 0px $color-cell-additional inset;
-$shadow-cell: 0px 0px 45px 0px #842644ce;
 $radius-game-field: 2rem;
 

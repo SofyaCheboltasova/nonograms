@@ -23,7 +23,7 @@
 
 .header__text,
 .header__timer {
-  color: $color-cell-hover;
+  color: getColor(cell-hover);
   transition: all 1s cubic-bezier(0, -0.27, 1, 1.27);
 }
 

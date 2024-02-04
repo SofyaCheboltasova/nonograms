@@ -1,7 +1,8 @@
 .divider-vertical {
-  @include basicRectangle($size-game-field, 1px, $color-background);
+  @include basicRectangle($size-game-field, 1px, getColor(back));
 }
 
 .divider-horizontal {
-  @include basicRectangle(1px, $size-game-field, $color-background);
+  @include basicRectangle(1px, $size-game-field, getColor(back));
 }
+
