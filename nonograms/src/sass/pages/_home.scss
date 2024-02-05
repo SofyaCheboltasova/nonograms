@@ -4,7 +4,7 @@
   height: $height-page;
 
   @media (max-width: $tablet-width) {
-    height: 100dvh;
+    height: 100svh;
   }
 
   @media (max-width: $tablet-width) and (orientation: landscape) {
