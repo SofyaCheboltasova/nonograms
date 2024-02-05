@@ -1,5 +1,5 @@
 async function fetchRequest() {
-  const request = await fetch("/assets/nonograms/5x5.json");
+  const request = await fetch("./assets/nonograms/5x5.json");
   const nonograms = await request.json();
   return nonograms;
 }
@@ -59,4 +59,3 @@ function getNonogram() {
 }
 
 export { setNonogram, getNonogram, saveLastNonogram, setSavedNonogram };
-

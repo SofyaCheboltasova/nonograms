@@ -4,7 +4,7 @@ import resetGame from "./resetGame";
 
 async function getTemplates(size) {
   const file = `${size}x${size}.json`;
-  const request = await fetch(`/assets/nonograms/${file}`);
+  const request = await fetch(`./assets/nonograms/${file}`);
   const nonograms = await request.json();
   return nonograms;
 }
@@ -105,4 +105,3 @@ function showHideMenu() {
 }
 
 export { setTemplatesButtons, showHideMenu };
-
