@@ -6,19 +6,21 @@
   position: relative;
   transition: all 0.4s ease;
 
-  &:hover {
-    z-index: 2;
-    transform: scale(1.1);
-    outline: $border-cell solid getColor(back);
-    box-shadow: getShadow(cell);
-  }
+  @media (hover: hover) {
+    &:hover {
+      z-index: 2;
+      transform: scale(1.1);
+      outline: $border-cell solid getColor(back);
+      box-shadow: getShadow(cell);
+    }
 
-  &:active {
-    transform: scale((1));
-  }
+    &:active {
+      transform: scale((1));
+    }
 
-  &:not(:hover) {
-    z-index: 1;
+    &:not(:hover) {
+      z-index: 1;
+    }
   }
 
   @media screen and (max-width: $tablet-width) {
@@ -29,10 +31,6 @@
     height: 14vh;
     width: 9vw;
   }
-
-  // @media screen and (orientation: landscape) and (min-width: 1024px) {
-  //   width: 9vw;
-  // }
 }
 
 .cell_pressed {
@@ -66,14 +64,9 @@
     height: 14vh;
     width: 100%;
   }
-
-  // @media screen and (orientation: landscape) and (min-width: 1024px) {
-  //   width: 100%;
-  // }
 }
 
 .horizontal {
   display: inline-flex;
   justify-content: space-around;
 }
-

@@ -2,12 +2,14 @@
   cursor: pointer;
   transition: all 0.3s;
 
-  &:hover {
-    transform: scale(1.2);
-  }
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.2);
+    }
 
-  &:active {
-    transform: scale(1);
+    &:active {
+      transform: scale(1);
+    }
   }
 }
 
@@ -59,12 +61,13 @@
 .button__templates {
   width: 100%;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.1);
+    }
 
-  &:active {
-    transform: scale(1);
+    &:active {
+      transform: scale(1);
+    }
   }
 }
-

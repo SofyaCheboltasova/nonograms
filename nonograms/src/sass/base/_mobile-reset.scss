@@ -1,10 +1,9 @@
 :root {
   @media (max-width: $tablet-width) {
-    font-size: 1.3vw;
+    font-size: 1.5vw;
   }
 
   @media (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
-    font-size: 1.2vh;
+    font-size: 1.5vh;
   }
 }
-
