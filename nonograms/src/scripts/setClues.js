@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 function setCluesForLine(cell, line, cellClass = "") {
   for (let j = 0; j < line.length; j += 1) {
     const span = document.createElement("span");
@@ -28,4 +27,3 @@ function setClues() {
 }
 
 export default setClues;
-

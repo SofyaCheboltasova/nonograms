@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { audio } from "./constants";
 
 let volumeOn = false;
@@ -69,4 +68,3 @@ function setAudioTags() {
 }
 
 export { audio, setAudioOn, setAudioOff, setAudioTags, audioSwitchHandlers };
-

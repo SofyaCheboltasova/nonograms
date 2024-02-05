@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { setAudioTags, audioSwitchHandlers } from "./audio";
 import { controlButtons } from "./constants";
 import {
@@ -119,4 +118,3 @@ function setMenuButtons() {
 }
 
 export { setBackground, setHeader, setSettingsSection, setMenuButtons };
-

@@ -5,8 +5,10 @@ let timerId;
 
 function startTimer() {
   const timer = document.querySelector(".header__timer");
-  let min = 0;
-  let sec = 0;
+
+  const timerValues = timer.textContent.split("");
+  let min = Number(timerValues[1]);
+  let sec = Number(timerValues[timerValues.length - 1]);
 
   timerId = setInterval(() => {
     sec += 1;
@@ -17,7 +19,7 @@ function startTimer() {
 
     const fmin = min >= 10 ? min : `0${min}`;
     const fsec = sec >= 10 ? sec : `0${sec}`;
-    timer.innerText = `${fmin}:${fsec}`;
+    timer.textContent = `${fmin}:${fsec}`;
   }, 1000);
 }
 
@@ -35,8 +37,8 @@ function resetHeader() {
   const timer = document.querySelector(".header__timer");
   const text = document.querySelector(".header__text");
 
-  timer.innerText = "00:00";
-  text.innerText = "Let's solve the nonogram!";
+  timer.textContent = "00:00";
+  text.textContent = "Let's solve the nonogram!";
   header.classList.remove("main__header_win");
 }
 
@@ -49,8 +51,8 @@ function setHeader() {
   text.classList.add("header__text");
   timer.classList.add("header__timer");
 
-  timer.innerText = "00:00";
-  text.innerText = "Let's solve the nonogram!";
+  timer.textContent = "00:00";
+  text.textContent = "Let's solve the nonogram!";
 
   header.append(text, timer);
   return header;
@@ -68,5 +70,26 @@ function setEndMessage() {
   setAudioOn(audio.win.class);
 }
 
-export { setEndMessage, setHeader, isTimerStarted, resetHeader };
+function saveTimer() {
+  const timer = document.querySelector(".header__timer").textContent;
+  localStorage.setItem("timer", timer);
+}
 
+function restoreTimer() {
+  clearInterval(timerId);
+  timerId = undefined;
+
+  const timer = localStorage.getItem("timer");
+  const text = document.querySelector(".header__text");
+  document.querySelector(".header__timer").textContent = timer;
+  text.textContent = "Continue game...";
+}
+
+export {
+  setEndMessage,
+  setHeader,
+  isTimerStarted,
+  resetHeader,
+  saveTimer,
+  restoreTimer,
+};

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { getNonogram } from "./nonogram";
 
 const answers = [];
@@ -115,4 +114,3 @@ export {
   restoreSavedField,
   setSolution,
 };
-

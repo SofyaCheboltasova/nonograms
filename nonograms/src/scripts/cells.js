@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 import { initAnswersArray, updateAnswersArray, isSolved } from "./answers";
 import { setAudioOn, audio } from "./audio";
@@ -153,4 +152,3 @@ export {
   clickedCellsCount,
   turnOffClick,
 };
-

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { nonogramSizes } from "./constants";
 import resetGame from "./resetGame";
 

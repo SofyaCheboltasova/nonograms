@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
   resetAnswers,
   saveClickedCells,
@@ -17,7 +16,7 @@ import {
 import { showHideMenu } from "./templates";
 import { setNonogram, saveLastNonogram, setSavedNonogram } from "./nonogram";
 import setClues from "./setClues";
-import { resetHeader } from "./header";
+import { resetHeader, saveTimer, restoreTimer } from "./header";
 import resetGame from "./resetGame";
 import { fillTable } from "./scoreTableModal";
 
@@ -38,6 +37,7 @@ function setSaveHandlers(button) {
     saveClickedCells(clickedClasses);
     saveAnswers();
     saveLastNonogram();
+    saveTimer();
   });
 }
 
@@ -63,6 +63,7 @@ function setContinueHandlers(button) {
     setSavedNonogram();
     setClues();
     updateCountClickedCells();
+    restoreTimer();
   });
 }
 
@@ -109,4 +110,3 @@ export {
   setRandomHandlers,
   setScoreHandlers,
 };
-
