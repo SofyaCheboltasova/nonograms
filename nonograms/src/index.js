@@ -40,9 +40,3 @@ async function setMainTemplate() {
 setMainTemplate();
 setLogic();
 
-/*
-	- адаптив
-	- mvc
-	- 3 уровня сложности
-	*/
-
