@@ -1,5 +1,7 @@
 @import "base/normalize";
 @import "abstract/constants";
+@import "base/mobile-reset";
+
 @import "abstract/fonts";
 @import "themes/theme";
 
@@ -7,6 +9,7 @@
 @import "abstract/placeholders";
 @import "pages/home";
 @import "components/menu";
+@import "components/header";
 @import "components/templates";
 @import "components/button";
 @import "components/divider";

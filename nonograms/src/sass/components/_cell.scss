@@ -20,6 +20,19 @@
   &:not(:hover) {
     z-index: 1;
   }
+
+  @media screen and (max-width: $tablet-width) {
+    height: 14vw;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+    height: 14vh;
+    width: 9vw;
+  }
+
+  // @media screen and (orientation: landscape) and (min-width: 1024px) {
+  //   width: 9vw;
+  // }
 }
 
 .cell_pressed {
@@ -44,6 +57,19 @@
 
   display: inline-grid;
   align-items: center;
+
+  @media screen and (max-width: $tablet-width) {
+    height: 14vw;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+    height: 14vh;
+    width: 100%;
+  }
+
+  // @media screen and (orientation: landscape) and (min-width: 1024px) {
+  //   width: 100%;
+  // }
 }
 
 .horizontal {

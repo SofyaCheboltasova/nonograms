@@ -5,19 +5,34 @@
   position: fixed;
   top: 2vh;
   left: 2vw;
+
+  @media screen and (orientation: portrait) and (max-width: $content-width) {
+    width: 65vw;
+    left: 4vw;
+  }
 }
 
 .menu__buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
   width: $size-cell * 2;
+
+  @media screen and (orientation: portrait) and (max-width: $content-width) {
+    width: auto;
+  }
 }
 
 .menu__templates {
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  gap: 2rem;
+
+  @media screen and (orientation: portrait) and (max-width: $content-width) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+  }
 }
 

@@ -30,3 +30,10 @@ $size-game-field: 67.2rem;
 $size-divider: $size-game-field - $size-cell + $border-table;
 $radius-game-field: 2rem;
 
+// Breakpoints
+$content-width: 1193px;
+$tablet-landscape-width: 1024px;
+$tablet-width: 768px;
+$mobile-big-width: 431px;
+$mobile-big-landscape-height: 768px;
+

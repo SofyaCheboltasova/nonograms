@@ -3,7 +3,7 @@
 .templates__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: space-between;
   opacity: 1;
   transition: opacity 0.3s;
@@ -11,6 +11,9 @@
 
 .templates__wrapper {
   position: relative;
+  @media screen and (orientation: portrait) and (max-width: $content-width) {
+    overflow-y: hidden;
+  }
 }
 
 .templates__sizes_hidden,
@@ -22,5 +25,13 @@
 }
 .templates__wrapper_hidden {
   opacity: 0;
+}
+
+.templates__sizes,
+.templates__names {
+  @media screen and (orientation: portrait) and (max-width: $content-width) {
+    flex-direction: row;
+    overflow-y: hidden;
+  }
 }
 

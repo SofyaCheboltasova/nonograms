@@ -10,6 +10,20 @@
   position: relative;
   margin: 3rem;
   transition: all 0.3s;
+
+  @media (orientation: portrait) and (max-width: $tablet-width) {
+    width: 80vw;
+    height: auto;
+  }
+
+  @media (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+    height: 90dvh;
+  }
+
+  @media (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+    height: 90dvh;
+    width: 54vw;
+  }
 }
 
 .gameField_closed {
@@ -19,16 +33,49 @@
 .gameField__cells {
   border-collapse: collapse;
   border: $border-table solid getColor(back);
+
+  @media screen and (max-width: $tablet-width) {
+    width: 85%;
+    position: absolute;
+  }
+  @media (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+    width: unset;
+  }
 }
 
 .gameField__clues-wrapper {
   position: absolute;
   z-index: -1;
   max-height: 100%;
+
+  @media (max-width: $tablet-width) {
+    position: unset;
+  }
+
+  @media (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+    width: 100%;
+  }
 }
 
 .gameField__clues {
   border-collapse: collapse;
   font-size: 3rem;
+
+  @media (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+    width: 100%;
+  }
+}
+
+@media (orientation: portrait) and (max-width: $tablet-width) {
+  .gameField__clues tr {
+    width: 80vw;
+    display: flex;
+  }
+}
+
+@media (orientation: landscape) and (max-width: $tablet-landscape-width) and (max-height: $mobile-big-landscape-height) {
+  .gameField__clues tr {
+    display: flex;
+  }
 }
 

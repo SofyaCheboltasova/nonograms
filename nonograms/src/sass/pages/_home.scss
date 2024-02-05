@@ -2,6 +2,18 @@
   @include flexPosition();
   flex-direction: column;
   height: $height-page;
+
+  @media (max-width: $tablet-width) {
+    height: 100dvh;
+  }
+
+  @media screen and (orientation: portrait) and (min-width: $mobile-big-width) and (max-width: $content-width) {
+    justify-content: end;
+  }
+
+  @media screen and (min-height: 1025px) {
+    justify-content: center;
+  }
 }
 
 .background {
@@ -19,12 +31,6 @@
 .main__header {
   display: flex;
   gap: 2rem;
-}
-
-.header__text,
-.header__timer {
-  color: getColor(cell-hover);
-  transition: all 1s cubic-bezier(0, -0.27, 1, 1.27);
 }
 
 .main__header_win {
